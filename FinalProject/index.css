@@ -12,6 +12,11 @@ body {
   background-image: url(Images/bgimg.png);
 }
 
+/* ============ Buttons ===========*/
+
+.button {
+}
+
 /* ============ NAV ============*/
 
 nav ul{
@@ -112,6 +117,7 @@ nav a:focus {
     border: 1px solid white;
     max-width: 270px;
     max-height: 370px;
+    box-shadow: 5px 5px 30px 5px white, 5px 5px 30px 5px white;
 }
 
 
