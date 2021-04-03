@@ -48,29 +48,63 @@ body {
       background-color: transparent;
   }
   
-  
+  /*
   .mid-section{
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
   }
-  
-  .bottom-section {
-      width: 100%;
-      height: 40vh;
-      background-color: transparent;
-  }
+  */
   
   .section-title {
       margin-left: .5em;
   }
   
+
   .top-mid-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+  
   }
   
+
+  
+    .desc-cast-container-card {
+      background-color: rgb(63, 57, 57);
+      color: #ffffff;
+      width: 40vw;
+      height: 100%;
+    }
+
+  .description-page-text {
+      font-size: 1.75em;
+  }
+  
+  .genre-services-container-card {
+    padding: 2px 16px 10px;
+    background-color: transparent;
+    color: #000000;
+    height: 100%;
+    width: 125%;
+    margin-left: 122%;
+    font-weight: bold;
+}
+
+
+.text-card {
+  background-color: rgb(54, 37, 8);
+}
+
+.image {
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width:60%;
+    height:55%;
+}
+
+.under-image {
+  margin-left: 30%;
+}
+
     .card {
       transition: 0.3s;
       background: none;
@@ -78,63 +112,16 @@ body {
       transition: width .5s, height .5s;
       width: 35%;
   }
-  
 
-    .description-container-card {
-      position: absolute;
-      right: 16%;
-      padding: 1.5em;
-      background-color: rgb(92, 89, 84);
-      color: #ffffff;
-      /*height: 35vh;*/
-      width: 45%;
-    }
-
-  .cast-container-card {
-      padding: 2px 16px 10px;
-      background-color: rgb(92, 89, 84);
-      color: #ffffff;
-      height: 150px;
-  }
-
-  .description-page-text {
-      font-size: xx-large;
-  }
-  
-  .genre-container-card {
-    padding: 2px 16px 10px;
-    background-color: rgb(92, 89, 84);
-    /* Change back after testing sizes
-    background-color: transparent;
-    */
-    color: #ffffff;
-    height: 75px;
-    width: 300px;
-}
-
-.services-container-card {
-    padding: 2px 16px 10px;
-    background-color: rgb(92, 89, 84);
-    /* Change back after testing sizes
-    background-color: transparent;
-    */
-    color: #ffffff;
-    height: 100px;
-    width: 300px;
-}
-
-.image {
-    margin-left: 10vw;
-    margin-top: 5vh;
-    width:575px;
-    height:750px;
-}
-
-/* Split columns to half of the window.*/
-.column {
+/* Split window into 2 columns.*/
+.left-column {
     float: left;
-    width: 50.00%;
-    padding: 15px;
+    width: 34%;
+  }
+
+  .right-column {
+    float: left;
+    width: 66%;
   }
 
 /* Clear floats after the columns */
