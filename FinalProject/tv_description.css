@@ -78,6 +78,12 @@ body {
       font-size: 1.75em;
   }
   
+.genre-text{
+  font-size: 1.75em;
+  position: relative;
+  left: 40%;
+}
+
   .genre-services-container-card {
     padding: 2px 16px 10px;
     background-color: transparent;
@@ -105,13 +111,6 @@ body {
   margin-left: 30%;
 }
 
-    .card {
-      transition: 0.3s;
-      background: none;
-      margin: .5em .5em;
-      transition: width .5s, height .5s;
-      width: 35%;
-  }
 
 /* Split window into 2 columns.*/
 .left-column {
@@ -133,4 +132,61 @@ body {
 
 .row {
   display: flex;
+  position: absolute;
+  height: 80em;
+}
+
+
+.cast-area {
+  width: 100%;
+  height: 100%;
+}
+
+.mid-section {
+  width: 100%;
+  height: 50vh;
+}
+
+.cast {
+  width: 100%;
+  height: 100%;
+}
+
+.cast-section {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  position: relative;
+  left: -2%;
+}
+
+.cast-imgs {
+  width: 100%;
+  position: relative;
+  left: .5%;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin: 2em;
+}
+
+.cast-name {
+  position: relative;
+  right: 1em;
+  height: 100%;
+  width: 100px;
+  margin-right: 2.1em;
+  margin-left: 1em;
+  text-align: center;
+  margin-top: 0;
+}
+
+.actor-names {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
 }
