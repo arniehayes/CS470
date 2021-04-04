@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: darkslategray;
+  margin: 0;
+}
+
+.main-header{
+    float: right;
+}
+
+.logo{
+    float: left;
+    display: inline-block;
+    margin: 2em;
+    padding: 14px 16px;
+    color: white;
+}
+
+.navbar {
+  overflow: hidden;
+  justify-content: right;
+  display: inline-block;
+  margin: 2em
+}
+
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: gray;
+}
+
+/* ============ SECTIONS ============*/
+
+.header-section{
+    margin: 0;
+    height: 8em;
+}
+
+
+
+.section-title {
+    margin-left: .5em;
+}
+
+
+.home-preview-slider {
+    height: 100%;
+    width: 80%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+}
+
+.about-us-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.FAQ-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-us-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container{
+    padding: 2px 16px 10px;
+    height: 30%;
+}
+
+.title{
+    text-align: center;
+    font-family:sans-serif;
+    font-size: 25px;
+    color: ghostwhite;
+}
+
+.question{
+    font-family: cursive;
+    text-align: left;
+}
+
+.answer{
+    font-family: Georgia;
+    text-align: left;
+}
+
+p{
+    text-align: center;
+    font-size: 15px;
+    color: whitesmoke;
+}
