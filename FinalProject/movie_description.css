@@ -161,6 +161,11 @@
     margin: auto;
 }
 
+.sect-title {
+    color: white;
+  }
+
+
 .cast > *{
     width: 75%;
     margin: auto;
