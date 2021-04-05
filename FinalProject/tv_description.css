@@ -173,3 +173,57 @@ nav a:focus {
   display: flex;
   width: 100%;
 }
+
+.cast-area {
+  width: 100%;
+  height: 100%;
+}
+
+.mid-section {
+  width: 100%;
+  height: 50vh;
+}
+
+.cast {
+  width: 100%;
+  height: 100%;
+}
+
+.cast-section {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  position: relative;
+  left: -2%;
+}
+
+.cast-imgs {
+  width: 100%;
+  position: relative;
+  left: .5%;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin: 2em;
+}
+
+.cast-name {
+  position: relative;
+  right: 1em;
+  height: 100%;
+  width: 100px;
+  margin-right: 2.1em;
+  margin-left: 1em;
+  text-align: center;
+  margin-top: 0;
+}
+
+.actor-names {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+}
