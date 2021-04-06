@@ -178,7 +178,6 @@ nav a:focus {
 .row {
   display: flex;
   width: 100%;
-  position: absolute;
   height: 80em;
 }
 
