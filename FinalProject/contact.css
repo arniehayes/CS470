@@ -29,7 +29,7 @@ body {
 .search-icon {
   position: relative;
   left: 10px;
-  top: 22px;
+  top: 22px;/*3px;*/
 }
 
 .search:hover, .search:focus {
