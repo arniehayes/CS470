@@ -28,8 +28,8 @@ body {
 
 .search-icon {
   position: relative;
-  left: 25px;
-  top: 3px;
+  left: 10px;
+  top: 22px;
 }
 
 .search:hover, .search:focus {
