@@ -114,6 +114,12 @@ nav a:focus {
   .description-header, .cast-header{
     color: white;
   }
+  
+.genre-text{
+  font-size: 1.75em;
+  position: relative;
+  left: 40%;
+}
 
   .genre-services-container-card {
     padding: 2px 16px 10px;
@@ -172,6 +178,8 @@ nav a:focus {
 .row {
   display: flex;
   width: 100%;
+  position: absolute;
+  height: 80em;
 }
 
 .cast-area {
