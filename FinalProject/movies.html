@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="main.js"></script>
-    <title>Streamline</title>
+    <link rel="stylesheet" type="text/css" href="movies.css" />
+    <script src="genre-servicedrop.js"></script>
+    <title>Streamline: Movies</title>
   </head>
   <body>
     <!-- Header Area -->
@@ -36,21 +36,63 @@
     <!-- top area -->
     <section class="top-section">
       <div class="home-preview-slider">
-        <img src="Images/shrek.jpg" id="main-img" alt="" class="home-img" />
+        <h1 class="section-title">Movies</h1>
       </div>
     </section>
+      
+    <section class = "mid-top-section">
+        <div class="dropdown">
+            <button onclick="genreClick()" class="dropbtn">Genre</button>
+                <div id="genreDropdown" class="dropdown-content">
+                    <a href="#">Action</a>
+                    <a href="#">Mystery</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Fiction</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Science Fiction</a>
+                    <a href="#">Animated</a>
+                    <a href="#">Educational</a>
+                </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="servicesClick()" class="dropbtn">Streaming Services</button>
+                <div id="servicesDropdown" class="dropdown-content">
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/youtube_premium.png" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/hulu.png" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/netflix.jpg" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/amazon_prime.jpg" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/tubi.jpg" class="sslogo" />
+                    </div>
+                
+                </div>
+        </div>
+      </section>
 
     <!-- top-mid area -->
-    <h1 class="section-title">Popular Movies</h1>
     <section class="top-mid-section">
       <div class="card">
-        <a href="movie_description.html">
-          <img src="Images/UP.jpg" class="pop-movie" />
-        </a>
+          <img src="Images/aladdin.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/nightBeforeCmas.jpg" class="pop-movie" />
+        <img src="Images/Beauty-and-the-beast.jpg" class="pop-movie" />
+      </div>
+        
+      <div class="card">
+        <img src="Images/wonka.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/Coco.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
@@ -58,11 +100,7 @@
       </div>
 
       <div class="card">
-        <img src="Images/aladdin.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/smallfoot.jpg" class="pop-movie" />
+        <img src="Images/croods.png" class="pop-movie" />
       </div>
 
       <div class="card">
@@ -70,7 +108,19 @@
       </div>
 
       <div class="card">
-        <img src="Images/Beauty-and-the-beast.jpg" class="pop-movie" />
+        <img src="Images/frozen-poster.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/Incredibles_2.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/Inside_out.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/lorax.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
@@ -78,7 +128,27 @@
       </div>
 
       <div class="card">
-        <img src="Images/frozen-poster.jpg" class="pop-movie" />
+        <img src="Images/ME.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/nightBeforeCmas.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/over_the_moon.jpg" class="pop-movie" />
+      </div>
+      
+      <div class="card">
+        <img src="Images/Paddington_2.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/peter_rabbit.jpg" class="pop-movie" />
+      </div>
+
+      <div class="card">
+        <img src="Images/Pinocchio.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
@@ -86,83 +156,52 @@
       </div>
 
       <div class="card">
-        <img src="Images/wonka.jpg" class="pop-movie" />
+        <img src="Images/raya.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/ME.jpg" class="pop-movie" />
+        <img src="Images/scoob.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/croods.png" class="pop-movie" />
+          <img src="Images/smallfoot.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/lorax.jpg" class="pop-movie" />
-      </div>
-    </section>
-
-    <!-- mid area -->
-    <h1 class="section-title">Popular TV Shows</h1>
-    <section class="mid-section">
-      <div class="card">
-        <img src="Images/trolls.jpg" class="pop-movie" />
+        <img src="Images/Snow_White.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/heyArnold.jpg" class="pop-movie" />
+        <img src="Images/soul.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/yogi.jpg" class="pop-movie" />
+        <img src="Images/Spiderman_into_the_Spiderverse.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/peterwolf.jpg" class="pop-movie" />
+        <img src="Images/Toy_Story_2.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/pinky.jpg" class="pop-movie" />
+        <img src="Images/Toy_Story_3.jpg" class="pop-movie" />
       </div>
 
       <div class="card">
-        <img src="Images/tomjerry.jpg" class="pop-movie" />
+        <img src="Images/Toy_Story_4.jpg" class="pop-movie" />
       </div>
-
+        
       <div class="card">
-        <a href="tv_description.html">
-          <img src="Images/songebo.jpg" class="pop-movie" />
+        <a href="movie_description.html">
+          <img src="Images/UP.jpg" class="pop-movie" />
         </a>
       </div>
-
+        
       <div class="card">
-        <img src="Images/maxruby.jpg" class="pop-movie" />
+        <img src="Images/Wizard_of_Oz.jpg" class="pop-movie" />
       </div>
-
-      <div class="card">
-        <img src="Images/thomas.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/guppies.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/ben10.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/codename.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/powerpuff.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/johnnytest.jpg" class="pop-movie" />
-      </div>
-    </section>
+        
+      </section>
 
     <section class="bottom-section">
       <div class="info"></div>
