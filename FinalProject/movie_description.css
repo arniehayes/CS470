@@ -1,0 +1,172 @@
+* {
+    transition: all 0.3s ease-out;
+  }
+  
+  header {
+      margin: 0;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-image: url(Images/bgimg.png);
+  }
+  
+  /* ============ Buttons ===========*/
+  
+  .button {
+  }
+  
+  .search {
+      border: 1px solid #fff;
+      border-radius: 5px;
+      height: 15px;
+      padding: 2px 23px 2px 30px;
+      outline: 0;
+      background: transparent;
+  }
+  
+  .search-icon {
+    position: relative;
+    left: 25px;
+    top: 3px;
+  }
+  
+  .search:hover, .search:focus {
+    border: 1px solid black;
+    background-color: white;
+  }
+  
+  /* ============ NAV ============*/
+  
+  nav ul{
+      margin: 2em;
+      padding: 0;
+      list-style: none;
+  }
+  
+  nav li {
+      display: inline-block;
+      margin: 1em;
+  }
+  
+  
+  nav a {
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .8rem;
+      padding: .5em;
+      color: #FFF;
+  }
+  nav a:hover,
+  nav a:focus {
+      color: skyblue;
+  }
+  
+  @media (min-width: 80rem) {
+      .logo {
+          float: left;
+          
+      }
+      nav {
+          float: right;
+      }
+  }
+
+  /* ============ SECTIONS ============*/
+  
+  .header-section{
+      margin: 0;
+      height: 8em;
+  }
+  .top-section{
+      width: 100%;
+      height: 70vh;
+      background-color: transparent;
+  }
+  
+  .section-title {
+      margin-left: .5em;
+  }
+  
+  .card {
+    transition: 0.3s;
+    background: rgb(63, 57, 57);
+    margin: .5em .5em;
+    transition: width .5s, height .5s;
+}
+
+.card-text {
+    font-size: xx-large;
+}
+
+.genre-service-text {
+    color: black;
+    font-weight: bold;
+}
+
+.image {
+    width: 55%;
+    height: 100%;
+}
+
+.video {
+    width: 50vw;
+    height: 99.5%;
+}
+
+.image-video {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: transparent;
+    width: 100%;
+}
+
+.image-video > div {
+    text-align: center;
+  }
+
+.genre-service {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: transparent;
+    text-align: center;
+}
+
+.genre-container {
+    width: 50%;
+}
+
+.genre-card {
+    background-color: transparent;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.service-container {
+    width: 50%;
+}
+
+.service-card {
+    background-color: transparent;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.description > *{
+    width: 75%;
+    margin: auto;
+}
+
+.sect-title {
+    color: white;
+  }
+
+
+.cast > *{
+    width: 75%;
+    margin: auto;
+}
