@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="popular.css" />
+    <script src="genre-servicedrop.js"></script>
     <title>Streamline</title>
   </head>
   <body>
@@ -21,8 +21,8 @@
           </li>
           <li><a href="index.html">Home</a></li>
           <li><a href="popular.html">Popular</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">TV Shows</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="tv_shows.html">TV Shows</a></li>
           <a href="contact.html">
             <button type="submit" class="button">
                 <a href="contact.html">
@@ -36,12 +36,48 @@
     <!-- top area -->
     <section class="top-section">
       <div class="home-preview-slider">
-        <img src="Images/shrek.jpg" id="main-img" alt="" class="home-img" />
+        <h1 class="section-title">Popular TV Shows and Movies</h1>
       </div>
     </section>
+      
+    <section class = "mid-top-section">
+        <div class="dropdown">
+            <button onclick="genreClick()" class="dropbtn">Genre</button>
+                <div id="genreDropdown" class="dropdown-content">
+                    <a href="#">Action</a>
+                    <a href="#">Mystery</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Fiction</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Science Fiction</a>
+                    <a href="#">Animated</a>
+                    <a href="#">Educational</a>
+                </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="servicesClick()" class="dropbtn">Streaming Services</button>
+                <div id="servicesDropdown" class="dropdown-content">
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/youtube_premium.png" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/hulu.png" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/netflix.jpg" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/amazon_prime.jpg" class="sslogo" />
+                    </div>
+                    <div class="sslogo_tab">
+        <img src="Images/streaming_logos/tubi.jpg" class="sslogo" />
+                    </div>
+                
+                </div>
+        </div>
+      </section>
 
     <!-- top-mid area -->
-    <h1 class="section-title">Popular Movies</h1>
     <section class="top-mid-section">
       <div class="card">
         <a href="movie_description.html">
@@ -100,11 +136,7 @@
       <div class="card">
         <img src="Images/lorax.jpg" class="pop-movie" />
       </div>
-    </section>
-
-    <!-- mid area -->
-    <h1 class="section-title">Popular TV Shows</h1>
-    <section class="mid-section">
+      
       <div class="card">
         <img src="Images/trolls.jpg" class="pop-movie" />
       </div>
@@ -162,7 +194,7 @@
       <div class="card">
         <img src="Images/johnnytest.jpg" class="pop-movie" />
       </div>
-    </section>
+      </section>
 
     <section class="bottom-section">
       <div class="info"></div>
