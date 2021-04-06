@@ -17,6 +17,7 @@ body {
 .button {
 }
 
+
 .search {
     border: 1px solid #fff;
     border-radius: 5px;
@@ -28,8 +29,8 @@ body {
 
 .search-icon {
   position: relative;
-  left: 25px;
-  top: 3px;
+  left: 10px;
+  top: 23px;
 }
 
 .search:hover, .search:focus {

@@ -19,3 +19,15 @@ request.onload = () => {
     console.log(`error ${request.status} ${request.statusText}`);
   }
 };
+
+
+
+// Search
+var form = document.querySelector("form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var search = form.querySelector("input[type=search]");
+  search.value = "site:css-tricks.com " + search.value;
+  form.submit();
+});
