@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="movie_description.css">
-        <script src="main.js"></script>
-        <title> Movie Description </title>
-    </head>
-
-      <!-- Header Area -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="movie_description.css" />
+    <script src="movie_desc.js" defer></script>
+    <title>Movie Description</title>
+  </head>
+  <body>
     <section class="header">
       <img src="Images/logo.png" alt="Logo" class="logo" />
       <nav>
         <ul>
           <li>
-            <img class="search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
-            <form action="Search.html" id="search">
-              <input type="text" placeholder="Search..." class="search">
+            <form id="form">
+              <input
+                type="text"
+                id="search"
+                placeholder="Search"
+                class="search"
+              />
             </form>
           </li>
           <li><a href="index.html">Home</a></li>
@@ -25,62 +28,14 @@
           <li><a href="tv_shows.html">TV Shows</a></li>
           <a href="contact.html">
             <button type="submit" class="button">
-                <a href="contact.html">
-                  <img src="Images/menu.png" alt="" width="15px" height="15px">
-                </a>
+              <a href="contact.html">
+                <img src="Images/menu.png" alt="" width="15px" height="15px" />
+              </a>
             </button>
           </a>
         </ul>
       </nav>
-    </section>
-
-    <!-- Movie image and youtube trailer-->
-    <body>
-        <div class = "image-video">
-            <div class="image-window">
-                <img class = "image" src="Images/UP.jpg">
-            </div>
-            <div class="youtube-window">
-                <iframe class = "video" src="https://www.youtube.com/embed/ORFWdXl_zJ4">
-                </iframe>
-            </div>
-        </div>
-
-        <!-- Genre and streaming service row-->
-        <div class = "genre-service">
-            <div class = "genre-container">
-                <h1 class = "sect-title">Genre</h1>
-                <div class="genre-card">             
-                    <div class=""></div>
-                    <p class = "card-text genre-service-text">Animation, Comedy</p>
-                  </div>
-            </div>
-            <div class= "service-container">
-                <h1 class = "sect-title">Streaming Service</h1>
-                <div class="service-card">             
-                    <div class=""></div>
-                    <p class = "card-text genre-service-text">Disney+</p>
-                  </div>
-            </div>
-        </div>
-
-        <!-- Description of movie-->
-        <div class = "description">
-                <h1 class = "sect-title">Description</h1>
-                <div class="card">
-                    <div class ="">            
-                    <p class = "card-text">Carl Fredricksen spent his entire life dreaming of exploring the globe and experiencing life to its fullest. But at age 78, life seems to have passed him by, until a twist of fate (and a persistent 8-year old Wilderness Explorer named Russell) gives him a new lease on life.</p>
-                </div>
-                </div>
-        </div>
-
-        <!-- List of cast members-->
-        <div class = "cast">
-            <h1 class = "sect-title">Cast</h1>
-                <div class="card">   
-                    <div class ="">       
-                    <p class = "card-text">Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson, Delroy Lindo, Jerome Ranft</p>
-                    </div>   
-                </div>
-    </body>
+  </section>
+  <main id="main"></main>
+  </body>
 </html>
