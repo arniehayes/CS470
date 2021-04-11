@@ -7,7 +7,7 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyARkx4oX8mCmYJlyECthg1UMrOZKXJy5E8"
+youtube_key = "AIzaSyDe68Us2DPqMVN5o4EB0oFilwmyuYgL_gI"
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -22,7 +22,7 @@ getMovies(APIURL);
 
 async function getYoutubeURL() {
   // Construct YouTube API search for the movie trailer
-  youtube_search = localStorage.getItem("storageTitle") + " Trailer";
+  youtube_search = localStorage.getItem("storageTitle") + localStorage.getItem("releaseYear") + " Trailer";
   console.log("Search:", youtube_search)
   APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
 
@@ -37,7 +37,7 @@ async function getYoutubeURL() {
 
 async function getMovies(url) {
   // Construct YouTube API search for the movie trailer
-  youtube_search = localStorage.getItem("storageTitle") + " Trailer";
+  youtube_search = localStorage.getItem("storageTitle") + ' ' + localStorage.getItem("releaseYear") + " Trailer";
   console.log("Search:", youtube_search)
   APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
 
@@ -51,7 +51,7 @@ async function getMovies(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log(respData);
+  console.log("IMDB Object:", respData);
   showMovies(respData, youtube_url);
 }
 
