@@ -10,8 +10,13 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-image: url(Images/bgimg.png);
+    width: 100%;
   }
   
+  main {
+    width: 100%;
+  }
+
   /* ============ Buttons ===========*/
   
   .button {
