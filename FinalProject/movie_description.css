@@ -79,21 +79,7 @@
       }
   }
 
-  /* ============ SECTIONS ============*/
-  
-  .header-section{
-      margin: 0;
-      height: 8em;
-  }
-  .top-section{
-      width: 100%;
-      height: 70vh;
-      background-color: transparent;
-  }
-  
-  .section-title {
-      margin-left: .5em;
-  }
+
   
   .card {
     transition: 0.3s;
