@@ -1,5 +1,9 @@
 const APIURL =
   "https://api.themoviedb.org/3/discover/movie?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&certification_country=US&certification=G&include_adult=false&include_video=false&page=1";
+
+const TVAPI =
+  "https://api.themoviedb.org/3/genre/tv/list?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US";
+
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
@@ -13,6 +17,7 @@ const search = document.getElementById("search");
 
 // initially get fav movies
 getMovies(APIURL);
+getTV(TVAPI);
 
 async function getMovies(url) {
     const resp = await fetch(url);
@@ -21,6 +26,20 @@ async function getMovies(url) {
     console.log(respData);
 
     showMovies(respData.results);
+}
+
+async function getTV(url) {
+  const resp = await fetch(url);
+  const respData = await resp.json();
+
+  console.log(respData);
+
+  showTV(respData.genres);
+}
+
+function showTV(TV) {
+    const { genre } = TVShow;
+    
 }
 
 function showMovies(movies) {
@@ -53,6 +72,7 @@ function showMovies(movies) {
 function getID(clickedID) {
     localStorage.setItem("storageName", clickedID);
 }
+
 
 
 form.addEventListener("submit", (e) => {
