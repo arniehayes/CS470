@@ -31,16 +31,14 @@ function showMovies(movies) {
         movieEl.classList.add("movie");
 
         movieEl.innerHTML = `
-            <img
-                src="${IMGPATH + poster_path}"
-                alt="${title}"
-            />
+            <a href="#">
+                <img
+                    src="${IMGPATH + poster_path}"
+                    alt="${title}"
+                />
+            </a>
             <div class="movie-info">
                 <h3>${title}</h3>
-            </div>
-            <div class="overview">
-                <h3>Overview:</h3>
-                ${overview}
             </div>
         `;
 
