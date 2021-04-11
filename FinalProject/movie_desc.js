@@ -21,24 +21,32 @@ async function getMovies(url) {
 
   console.log(respData);
 
-  showMovies(respData.results);
+  showMovies(respData);
 }
 
 function showMovies(movies) {
   // clear main
   main.innerHTML = "";
 
-  console.log(movies)
 
   //const { poster_path, title, overview, id } = movies;
+  
+  const { poster_path, overview, genres } = movies;
+  genre_string = "";
+  for (i = 0; i < genres.length; i++){
+      for (i = 0; i < genres.length; i++) {
+        if (i == genres.length - 1) {
+          genre_string = genre_string + genres[i].name;
+        } else {
+          genre_string = genre_string + genres[i].name + ", ";
+        }
+      }
+  }
 
-  for (i = 0; i < 1; i++) {
-     const { poster_path } = i;
+  const movieEl = document.createElement("div");
+  movieEl.classList.add("movie");
 
-     const movieEl = document.createElement("div");
-     movieEl.classList.add("movie");
-
-     movieEl.innerHTML = `
+  movieEl.innerHTML = `
   <div class = "image-video">
           <div class="image-window">
               <img class = "image" src="${IMGPATH + poster_path}">
@@ -54,7 +62,7 @@ function showMovies(movies) {
               <h1 class = "sect-title">Genre</h1>
               <div class="genre-card">             
                   <div class=""></div>
-                  <p class = "card-text genre-service-text">Animation, Comedy</p>
+                  <p class = "card-text genre-service-text">${genre_string}</p>
                 </div>
           </div>
           <div class= "service-container">
@@ -71,22 +79,13 @@ function showMovies(movies) {
               <h1 class = "sect-title">Description</h1>
               <div class="card">
                   <div class ="">            
-                  <p class = "card-text">Carl Fredricksen spent his entire life dreaming of exploring the globe and experiencing life to its fullest. But at age 78, life seems to have passed him by, until a twist of fate (and a persistent 8-year old Wilderness Explorer named Russell) gives him a new lease on life.</p>
+                  <p class = "card-text">${overview}</p>
               </div>
               </div>
       </div>
-
-      <div class = "cast">
-          <h1 class = "sect-title">Cast</h1>
-              <div class="card">   
-                  <div class ="">       
-                  <p class = "card-text">Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson, Delroy Lindo, Jerome Ranft</p>
-                  </div>   
-              </div>
       `;
 
-     main.appendChild(movieEl);
-  }
+  main.appendChild(movieEl);
 
 }
 
