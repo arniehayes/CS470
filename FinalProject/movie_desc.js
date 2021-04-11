@@ -100,3 +100,10 @@ form.addEventListener("submit", (e) => {
     search.value = "";
   }
 });
+
+var backdropIMG = IMGPATH + backdrop_path;
+
+function setBackdrop() {
+  document.body.style.backgroundImage =
+    "backdropIMG";
+}
