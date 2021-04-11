@@ -16,8 +16,8 @@ const search = document.getElementById("search");
 console.log("Movie ID:",localStorage.getItem("storageName"))
 console.log("Movie Title:",localStorage.getItem("storageTitle"))
 
+youtube_search = localStorage.getItem("storageTitle") + " Trailer";
 // initially get fav movies
-getYoutubeURL()
 getMovies(APIURL);
 
 async function getYoutubeURL() {
@@ -33,18 +33,29 @@ async function getYoutubeURL() {
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + respData.items[0].id.videoId
   console.log("Youtube Video URL:", youtube_url)
-  localStorage.setItem("youtube_link", youtube_url);
 }
 
 async function getMovies(url) {
+  // Construct YouTube API search for the movie trailer
+  youtube_search = localStorage.getItem("storageTitle") + " Trailer";
+  console.log("Search:", youtube_search)
+  APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
+
+  const y_resp = await fetch(APIsearch);
+  const y_respData = await y_resp.json();
+  console.log("YouTube API return:",y_respData);
+  // Construct Youtube video URL
+  youtube_url = "https://www.youtube.com/embed/" + y_respData.items[0].id.videoId
+  console.log("Youtube Video URL:", youtube_url)
+
   const resp = await fetch(url);
   const respData = await resp.json();
 
   console.log(respData);
-  showMovies(respData);
+  showMovies(respData, youtube_url);
 }
 
-function showMovies(movies) {
+function showMovies(movies, youtubeURL) {
   // clear main
   main.innerHTML = "";
 
@@ -69,7 +80,7 @@ function showMovies(movies) {
               <img class = "image" src="${IMGPATH + poster_path}">
           </div>
           <div class="youtube-window">
-              <iframe class = "video" src="${localStorage.getItem("youtube_link")}">
+              <iframe class = "video" src="${youtubeURL}"} allowfullscreen>
               </iframe>
           </div>
       </div>
