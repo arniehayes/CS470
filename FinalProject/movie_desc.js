@@ -28,7 +28,6 @@ function showMovies(movies) {
   // clear main
   main.innerHTML = "";
 
-
   //const { poster_path, title, overview, id } = movies;
   
   const { poster_path, overview, genres } = movies;
@@ -101,9 +100,9 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-var backdropIMG = IMGPATH + backdrop_path;
+/*var backdropIMG = IMGPATH + backdrop_path;
 
 function setBackdrop() {
   document.body.style.backgroundImage =
     "backdropIMG";
-}
+}*/
