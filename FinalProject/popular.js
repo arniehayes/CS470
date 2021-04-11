@@ -35,7 +35,7 @@ function showMovies(movies) {
         movieEl.classList.add("movie");
 
         movieEl.innerHTML = `
-            <a href="movie_description.html" id="${id}" onclick="getID(this.id)">
+            <a href="movie_description.html" onclick="getID(${id}, '${title}')">
                 <img
                     src="${IMGPATH + poster_path}"
                     alt="${title}"
@@ -50,8 +50,9 @@ function showMovies(movies) {
     });
 }
 
-function getID(clickedID) {
+function getID(clickedID, clickedTitle) {
     localStorage.setItem("storageName", clickedID);
+    localStorage.setItem("storageTitle", clickedTitle);
 }
 
 

@@ -7,20 +7,40 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
+youtube_key = "AIzaSyARkx4oX8mCmYJlyECthg1UMrOZKXJy5E8"
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
+console.log("Movie ID:",localStorage.getItem("storageName"))
+console.log("Movie Title:",localStorage.getItem("storageTitle"))
+
 // initially get fav movies
+getYoutubeURL()
 getMovies(APIURL);
+
+async function getYoutubeURL() {
+  // Construct YouTube API search for the movie trailer
+  youtube_search = localStorage.getItem("storageTitle") + " Trailer";
+  console.log("Search:", youtube_search)
+  APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
+
+  const resp = await fetch(APIsearch);
+  const respData = await resp.json();
+  console.log("YouTube API return:",respData);
+
+  // Construct Youtube video URL
+  youtube_url = "https://www.youtube.com/embed/" + respData.items[0].id.videoId
+  console.log("Youtube Video URL:", youtube_url)
+  localStorage.setItem("youtube_link", youtube_url);
+}
 
 async function getMovies(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
   console.log(respData);
-
   showMovies(respData);
 }
 
@@ -28,9 +48,6 @@ function showMovies(movies) {
   // clear main
   main.innerHTML = "";
 
-
-  //const { poster_path, title, overview, id } = movies;
-  
   const { poster_path, overview, genres } = movies;
   genre_string = "";
   for (i = 0; i < genres.length; i++){
@@ -52,7 +69,7 @@ function showMovies(movies) {
               <img class = "image" src="${IMGPATH + poster_path}">
           </div>
           <div class="youtube-window">
-              <iframe class = "video" src="">
+              <iframe class = "video" src="${localStorage.getItem("youtube_link")}">
               </iframe>
           </div>
       </div>
