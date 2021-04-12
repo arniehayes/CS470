@@ -83,6 +83,8 @@ async function getMovies(url) {
     service_string = ""
     if(services.length > 0)
     {
+      // Get rid of duplicates
+      services = [...new Set(services)];
       for(i = 0; i < services.length; i++)
       {
         if(i == services.length - 1)

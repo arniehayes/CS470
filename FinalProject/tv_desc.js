@@ -18,8 +18,6 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-// initially get fav movies
-// getMovies(APIURL);
 getTV(APIURL);
 
 async function getTV(url) {
@@ -31,48 +29,68 @@ async function getTV(url) {
   const prov_resp = await fetch(PROVIDERURL);
   const prov_respData = await prov_resp.json();
 
-  console.log("provider Resp data:", prov_respData)
- 
-  buy_list = prov_respData.results.US.buy;
-  flatrate_list = prov_respData.results.US.flatrate;
-  console.log("buy list:", buy_list);``
-  console.log("flatrate list:", flatrate_list);
-
-  // Initialize services array.
-  services = [];
-  // Get streaming services from buy list.
-  if(buy_list.length > 0)
+  if(typeof(prov_respData.results.US) === "undefined")
   {
-    for(i = 0; i < buy_list.length; i++)
-    {
-      services.push(buy_list[i].provider_name)
-    }
+    service_string = "Unknown"
   }
-  console.log("Services afte`r buy_list:", services)
-
-  if(flatrate_list.length > 0)
-  {
-    // Get streaming services from flat_list.
-    for(i = 0; i < flatrate_list.length; i++)
+  else
     {
-      services.push(flatrate_list[i].provider_name)
+    // Initialize services array.
+    services = [];
+    if(typeof(prov_respData.results.US.buy) != "undefined")
+    {
+      buy_list = prov_respData.results.US.buy;
+      console.log("buy list:", buy_list);
+      // Get streaming services from buy list.
+      if(buy_list.length > 0)
+      {
+        for(i = 0; i < buy_list.length; i++)
+        {
+          services.push(buy_list[i].provider_name)
+        }
+      }
+      console.log("Services after buy_list:", services)
     }
-  }
-  console.log("Services after flatrate_list:", services)
 
-  // Create the service provider string.
-  service_string = ""
-  for(i = 0; i < services.length; i++)
-  {
-    if(i == services.length - 1)
+    if(typeof(prov_respData.results.US.flatrate) != "undefined")
     {
-      service_string = service_string + services[i];
+      flatrate_list = prov_respData.results.US.flatrate;
+      console.log("flatrate list:", flatrate_list);
+      if(flatrate_list.length > 0)
+      {
+        // Get streaming services from flat_list.
+        for(i = 0; i < flatrate_list.length; i++)
+        {
+          services.push(flatrate_list[i].provider_name)
+        }
+      }
+      console.log("Services after flatrate_list:", services)
+    }
+
+    // Create the service provider string.
+    service_string = ""
+    if(services.length > 0)
+    {
+      // Get rid of duplicates
+      services = [...new Set(services)];
+      for(i = 0; i < services.length; i++)
+      {
+        if(i == services.length - 1)
+        {
+          service_string = service_string + services[i];
+        }
+        else
+        {
+          service_string = service_string + services[i] + ", ";
+        }
+      }
     }
     else
     {
-      service_string = service_string + services[i] + ", ";
+      service_string = "Unknown"
     }
   }
+  console.log("Service string:", service_string)
   console.log("Service string:", service_string)
   showTV(respData);
 }
