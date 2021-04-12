@@ -95,7 +95,8 @@ function getID(clickedID, clickedTitle, clickedRelease) {
 }
 
 
-
+// Search
+// NEED TO 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -103,6 +104,7 @@ form.addEventListener("submit", (e) => {
 
     if (searchTerm) {
         getMovies(SEARCHAPI + searchTerm);
+        getTV(SEARCHAPI + searchTerm);
 
         search.value = "";
     }
