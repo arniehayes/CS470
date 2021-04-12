@@ -9,10 +9,7 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-// initially get fav movies
-
 getTV(TVAPI);
-
 
 async function getTV(url) {
   const resp = await fetch(url);
@@ -38,7 +35,7 @@ function showTV(TV) {
         />
     </a>
     <div class="movie-info">
-        <h3>${name}</h3>
+        <h3 class="movie-name">${name}</h3>
     </div>
 `;
 
