@@ -3,48 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="movies.css" />
-    <script src="genre-servicedrop.js"></script>
-    <title>Streamline: Movies</title>
+    <link rel="stylesheet" type="text/css" href="test_movies.css" />
+    <script src="movies.js" defer></script>
+    <title>Movies</title>
   </head>
   <body>
-    <!-- Header Area -->
-        <section class="header">
-            <img src="Images/logo.png" alt="Logo" class="logo" />
-            <nav>
-              <ul>
-                <li>
-                  <form id="form">
-                    <input
-                      type="text"
-                      id="search"
-                      placeholder="Search"
-                      class="search"
-                    />
-                  </form>
-                </li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="popular.html">Popular</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="tv_shows.html">TV Shows</a></li>
-                <a href="contact.html">
-                  <button type="submit" class="button">
-                      <a href="contact.html">
-                        <img src="Images/menu.png" alt="" width="15px" height="15px">
-                      </a>
-                  </button>
-                </a>
-              </ul>
-            </nav>
-          </section>
-    <!-- top area -->
-    <section class="top-section">
-      <div class="home-preview-slider">
-        <h1 class="section-title">Movies</h1>
-      </div>
-    </section>
-      
-    <section class = "mid-top-section">
+    <section class="header">
+      <img src="Images/logo.png" alt="Logo" class="logo" />
+      <nav>
+        <ul>
+          <li>
+            <form id="form">
+              <input
+                type="text"
+                id="search"
+                placeholder="Search"
+                class="search"
+              />
+            </form>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="popular.html">Popular</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="tv_shows.html">TV Shows</a></li>
+          <a href="contact_us.html">
+            <button type="submit" class="button">
+                <img src="Images/menu.png" alt="" width="15px" height="15px" />
+            </button>
+          </a>
+        </ul>
+      </nav>
+  </section>
+  <section class = "mid-top-section">
         <div class="dropdown">
             <button onclick="genreClick()" class="dropbtn">Genre</button>
                 <div id="genreDropdown" class="dropdown-content">
@@ -80,135 +70,7 @@
                 </div>
         </div>
       </section>
-
-    <!-- top-mid area -->
-    <section class="top-mid-section">
-      <div class="card">
-          <img src="Images/aladdin.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Beauty-and-the-beast.jpg" class="pop-movie" />
-      </div>
-        
-      <div class="card">
-        <img src="Images/wonka.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Coco.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/meatballs.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/croods.png" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/daffy.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/frozen-poster.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Incredibles_2.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Inside_out.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/lorax.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/madagascar.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/ME.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/nightBeforeCmas.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/over_the_moon.jpg" class="pop-movie" />
-      </div>
-      
-      <div class="card">
-        <img src="Images/Paddington_2.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/peter_rabbit.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Pinocchio.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/rango-movie-poster.jpg.crdownload" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/raya.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/scoob.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-          <img src="Images/smallfoot.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Snow_White.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/soul.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Spiderman_into_the_Spiderverse.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Toy_Story_2.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Toy_Story_3.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Toy_Story_4.jpg" class="pop-movie" />
-      </div>
-        
-      <div class="card">
-        <a href="movie_description.html">
-          <img src="Images/UP.jpg" class="pop-movie" />
-        </a>
-      </div>
-        
-      <div class="card">
-        <img src="Images/Wizard_of_Oz.jpg" class="pop-movie" />
-      </div>
-        
-      </section>
-
-    <section class="bottom-section">
-      <div class="info"></div>
-    </section>
+      <h1 class="title">Movies</h1>
+  <main id="main"></main>
   </body>
 </html>
