@@ -1,173 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="main.js"></script>
-    <title>Streamline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="stylesheet" href="test_movies.css" />
+    <script src="popular.js" .js defer></script>
   </head>
   <body>
-    <!-- Header Area -->
-        <section class="header">
-            <img src="Images/logo.png" alt="Logo" class="logo" />
-            <nav>
-              <ul>
-                <li>
-                  <form id="form">
-                    <input
-                      type="text"
-                      id="search"
-                      placeholder="Search"
-                      class="search"
-                    />
-                  </form>
-                </li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="popular.html">Popular</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="tv_shows.html">TV Shows</a></li>
-                <a href="contact_us.html">
-                  <button type="submit" class="button">
-                        <img src="Images/menu.png" alt="" width="15px" height="15px">
-                  </button>
-                </a>
-              </ul>
-            </nav>
-          </section>
-    <!-- top area -->
-    <section class="top-section">
-      <div class="home-preview-slider">
-        <img src="Images/shrek.jpg" id="main-img" alt="" class="home-img" />
-      </div>
+    <section class="header">
+      <img src="Images/logo.png" alt="Logo" class="logo" />
+      <nav>
+        <ul>
+          <li>
+            <form id="form">
+              <input
+                type="text"
+                id="search"
+                placeholder="Search"
+                class="search"
+              />
+            </form>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="tv_shows.html">TV Shows</a></li>
+          <a href="contact_us.html">
+            <button type="submit" class="button">
+                <img src="Images/menu.png" alt="" width="15px" height="15px" />
+            </button>
+          </a>
+        </ul>
+      </nav>
     </section>
-
-    <!-- top-mid area -->
-    <h1 class="section-title">Popular Movies</h1>
-    <section class="top-mid-section">
-      <div class="card">
-        <a href="movie_description.html">
-          <img src="Images/UP.jpg" class="pop-movie" />
-        </a>
-      </div>
-
-      <div class="card">
-        <img src="Images/nightBeforeCmas.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/meatballs.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/aladdin.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/smallfoot.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/daffy.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/Beauty-and-the-beast.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/madagascar.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/frozen-poster.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/rango-movie-poster.jpg.crdownload" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/wonka.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/ME.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/croods.png" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/lorax.jpg" class="pop-movie" />
-      </div>
-    </section>
-
-    <!-- mid area -->
-    <h1 class="section-title">Popular TV Shows</h1>
-    <section class="mid-section">
-      <div class="card">
-        <img src="Images/trolls.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/heyArnold.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/yogi.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/peterwolf.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/pinky.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/tomjerry.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <a href="tv_description.html">
-          <img src="Images/songebo.jpg" class="pop-movie" />
-        </a>
-      </div>
-
-      <div class="card">
-        <img src="Images/maxruby.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/thomas.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/guppies.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/ben10.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/codename.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/powerpuff.jpg" class="pop-movie" />
-      </div>
-
-      <div class="card">
-        <img src="Images/johnnytest.jpg" class="pop-movie" />
-      </div>
-    </section>
-
-    <section class="bottom-section">
-      <div class="info"></div>
-    </section>
+    <h1 class="title">Popular</h1>
+    <main id="main"></main>
   </body>
 </html>

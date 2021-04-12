@@ -12,8 +12,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-image: url(Images/bgimg.png);
-  background-size: cover;
+  background-image: url(Images/about-us-bg.jpeg);
 }
 
 .search {
@@ -78,13 +77,18 @@ nav a:focus {
 
 section {
     width: 100%;
-    height: 80vh;
-    background-color: transparent;
+    height: 20vh;
+    margin: 0;
 }
 
 .about {
   color: #fff;
   text-align: center
+}
+
+
+.p{
+  font-size: 20px;
 }
 
 
