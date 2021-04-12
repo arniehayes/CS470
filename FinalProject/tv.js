@@ -25,22 +25,22 @@ async function getTV(url) {
 
 function showTV(TV) {
   TV.forEach((show) => {
-    const { poster_path, title, id } = show;
+    const { poster_path, name, id } = show;
 
     const tvEL = document.createElement("div");
     tvEL.classList.add("movie");
 
     tvEL.innerHTML = `
-            <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
-                <img
-                    src="${IMGPATH + poster_path}"
-                    alt="${title}"
-                />
-            </a>
-            <div class="movie-info">
-                <h3>${title}</h3>
-            </div>
-        `;
+    <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
+        <img
+            src="${IMGPATH + poster_path}"
+            alt="${name}"
+        />
+    </a>
+    <div class="movie-info">
+        <h3>${name}</h3>
+    </div>
+`;
 
     main.appendChild(tvEL);
   });
