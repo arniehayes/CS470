@@ -12,6 +12,10 @@ const SEARCHAPI1 =
 const SEARCHAPI2 =
     "&include_adult=false&query=";
 
+const TVSEARCHAPI1 = 
+    "https://api.themoviedb.org/3/search/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&page=";
+
+
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -54,12 +58,17 @@ async function getTV(url) {
 
 function showTV(TV) {
     TV.forEach((show) => {
-
-        var rating = true;
-        
+        // Checking if the rating is family: 10762 or child: 10751
+        var rating = false;
+        const { poster_path, name, id, genre_ids } = show;
+        for (var i = 0; i < genre_ids.length - 1; i++) {
+            if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
+                rating = true;
+            }
+        }
         if (rating) {
-            const { poster_path, name, id } = show;
-            if (poster_path != null) {
+            // Making sure the file is not corrupted
+            if (poster_path != null && name != null) {
                 const tvEL = document.createElement("div");
                 tvEL.classList.add("movie");
 
@@ -86,13 +95,16 @@ function showMovies(movies) {
     main.innerHTML = "";
 
     movies.forEach((movie) => {
+
+        // Checking if the rating is family: 10762
         var rating = false;
-        for (var i = 0; i < movie.genre_ids.length; i++){
+        for (var i = 0; i < movie.genre_ids.length - 1; i++){
            if (movie.genre_ids[i] == 10751) {
                 rating = true;
            }
         }
         if (rating) {
+            // Making sure the file is not corrupted
             const { poster_path, title, overview, id, release_date } = movie;
             if (poster_path != null && title != null) {
                 const movieEl = document.createElement("div");
@@ -118,6 +130,8 @@ function showMovies(movies) {
 function showSearchMovies(movies) {
 
     movies.forEach((movie) => {
+
+        // Checking if the rating is family: 10762
         var rating = false;
         for (var i = 0; i < movie.genre_ids.length; i++) {
             if (movie.genre_ids[i] == 10751) {
@@ -125,6 +139,7 @@ function showSearchMovies(movies) {
             }
         }
         if (rating) {
+            // Making sure the file is not corrupted
             const { poster_path, title, overview, id, release_date } = movie;
             if (poster_path != null && title != null) {
                 const movieEl = document.createElement("div");
@@ -164,9 +179,11 @@ form.addEventListener("submit", (e) => {
     const searchTerm = search.value;
     if (searchTerm) {
         main.innerHTML = "";
-        for (var i = 1; i < 60; i++) {
+        for (var i = 1; i < 100; i++) {
 
             getSearchMovies(SEARCHAPI1 + i + SEARCHAPI2 + searchTerm);
+            getTV(TVSEARCHAPI1 + i + SEARCHAPI2 + searchTerm);
+                
         }
         search.value = "";
     }
