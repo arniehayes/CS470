@@ -66,14 +66,13 @@ function showMovies(movies) {
     main.innerHTML = "";
 
     movies.forEach((movie) => {
-        const { poster_path, title, id } = movie;
-
+        const { poster_path, title, overview, id, release_date} = movie;
 
         const movieEl = document.createElement("div");
         movieEl.classList.add("movie");
 
         movieEl.innerHTML = `
-            <a href="movie_description.html" id="${id}" onclick="getID(this.id)">
+            <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
                 <img
                     src="${IMGPATH + poster_path}"
                     alt="${title}"
@@ -83,13 +82,16 @@ function showMovies(movies) {
                 <h3>${title}</h3>
             </div>
         `;
-
         main.appendChild(movieEl);
     });
 }
 
-function getID(clickedID) {
+function getID(clickedID, clickedTitle, clickedRelease) {
     localStorage.setItem("storageName", clickedID);
+    localStorage.setItem("storageTitle", clickedTitle);
+    // Splice the release date to get the year only.
+    release = clickedRelease.slice(0,4);
+    localStorage.setItem("releaseYear", release);
 }
 
 
