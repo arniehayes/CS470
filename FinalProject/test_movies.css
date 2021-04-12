@@ -327,7 +327,7 @@ nav a:focus {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #1EC71E;
+  /*background-color: #1EC71E;*/
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -342,7 +342,7 @@ nav a:focus {
 }
 
 .dropdown-content sslogo_tab {
-  background: none;
+  color: #1EC71E;
   display: block;
   margin: 1em 0.5em;
   max-width: 100%;
@@ -361,7 +361,7 @@ nav a:focus {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #1FC21F}
 
-.dropdown-content sslogo_tab:hover {background-color: #1FC21F}
+.dropdown-content sslogo_tab:hover {color: #1FC21F}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
