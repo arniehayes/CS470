@@ -2,7 +2,7 @@
     transition: all 0.3s ease-out;
   }
   
-  header {
+  .header {
       margin: 0;
   }
   
@@ -10,6 +10,7 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-image: url(Images/bgimg.png);
+    background-size: cover;
     width: 100%;
   }
   
@@ -18,13 +19,12 @@
     flex-wrap: nowrap;
     background-color: transparent;
     width: 100%;
+    height: 90rem;
     justify-content: center;
   }
 
   /* ============ Buttons ===========*/
-  
-  .button {
-  }
+
   
   .search {
       border: 1px solid #fff;
@@ -87,8 +87,8 @@
   
   .card {
     transition: 0.3s;
-    background: rgb(63, 57, 57);
-    margin: .5em .5em;
+    background: transparent;
+    margin: 1.5em .5em;
     transition: width .5s, height .5s;
 }
 
@@ -102,8 +102,7 @@
 }
 
 .image {
-    width: 55%;
-    height: 100%;
+    margin: 2em;
 }
 
 .tv-image-window {
@@ -112,17 +111,22 @@
 }
 
 .video {
-    width: 50vw;
-    height: 99.5%;
+    margin: 2em;
+    margin-top: 4em;
+    height: 80%;
+    width: 50%;
 }
 
 .image-video {
     display: flex;
-    flex-wrap: nowrap;
-    background-color: transparent;
-    width: 100%;
     justify-content: center;
+    align-content: center;
+    background-color: transparent;
+    margin-bottom: 3rem;
+    width: 100%;
+    height: 50%;
 }
+
 
 .backdrop {
     display: flex;
@@ -130,6 +134,7 @@
     background-color: transparent;
     width: 100%;
     justify-content: center;
+    margin-bottom: 4em;
 }
 
 .image-video > div {

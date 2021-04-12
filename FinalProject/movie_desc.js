@@ -76,13 +76,11 @@ function showMovies(movies, youtubeURL) {
 
   movieEl.innerHTML = `
   <div class = "image-video">
-          <div class="image-window">
               <img class = "image" src="${IMGPATH + poster_path}">
-          </div>
-          <div class="youtube-window">
+
               <iframe class = "video" src="${youtubeURL}"} allowfullscreen>
               </iframe>
-          </div>
+
       </div>
 
       <div class = "genre-service">
