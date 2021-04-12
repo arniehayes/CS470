@@ -72,6 +72,11 @@ function genreClick() {
   document.getElementById("genreDropdown").classList.toggle("show");
 }
 
+function StreamingFilter(ID){
+    main.innerHTML = "";
+    getMovies(APIURL + "&with_watch_providers=" + ID + "&watch_region=US");
+}
+
 function servicesClick() {
   document.getElementById("servicesDropdown").classList.toggle("show");
 }

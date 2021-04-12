@@ -8,11 +8,12 @@ const SEARCHAPI =
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+const streaming = document.getElementById("streaming");
 
 // initially get fav movies
 
 getTV(TVAPI);
-
+getTV(TVAPI + "&with_watch_providers=8&watch_region=US");
 
 async function getTV(url) {
   const resp = await fetch(url);
@@ -82,7 +83,7 @@ form.addEventListener("submit", (e) => {
   const searchTerm = search.value;
 
   if (searchTerm) {
-    getMovies(SEARCHAPI + searchTerm);
+    getTV(SEARCHAPI + searchTerm);
 
     search.value = "";
   }
@@ -95,6 +96,18 @@ function genreClick() {
 function servicesClick() {
   document.getElementById("servicesDropdown").classList.toggle("show");
 }
+
+function StreamFilter(ID){
+    getTV(TVAPI+"&with_watch_providers=8&watch_region=US");
+}
+
+/*
+streaming.addEventListener("click", (f) => {
+    f.preventDefault();
+    getTV(TVAPI+"&with_watch_providers=8&watch_region=US");
+  }
+});
+*/
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
