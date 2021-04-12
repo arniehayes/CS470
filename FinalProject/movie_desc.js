@@ -7,8 +7,11 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyDe68Us2DPqMVN5o4EB0oFilwmyuYgL_gI"
-
+youtube_key = "AIzaSyAFk7LnUM9ZEN66Ki86ZIAaal9nZBYosgg"
+const PROVIDERURL =
+  "https://api.themoviedb.org/3/movie/" +
+  localStorage.getItem("storageName") +
+  "/watch/providers?api_key=94f2d3081ba573d2f171f0f8020eb38a";
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
@@ -19,21 +22,6 @@ console.log("Movie Title:",localStorage.getItem("storageTitle"))
 youtube_search = localStorage.getItem("storageTitle") + " Trailer";
 // initially get fav movies
 getMovies(APIURL);
-
-async function getYoutubeURL() {
-  // Construct YouTube API search for the movie trailer
-  youtube_search = localStorage.getItem("storageTitle") + localStorage.getItem("releaseYear") + " Trailer";
-  console.log("Search:", youtube_search)
-  APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
-
-  const resp = await fetch(APIsearch);
-  const respData = await resp.json();
-  console.log("YouTube API return:",respData);
-
-  // Construct Youtube video URL
-  youtube_url = "https://www.youtube.com/embed/" + respData.items[0].id.videoId
-  console.log("Youtube Video URL:", youtube_url)
-}
 
 async function getMovies(url) {
   // Construct YouTube API search for the movie trailer
@@ -47,6 +35,72 @@ async function getMovies(url) {
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + y_respData.items[0].id.videoId
   console.log("Youtube Video URL:", youtube_url)
+
+  const prov_resp = await fetch(PROVIDERURL);
+  const prov_respData = await prov_resp.json();
+
+  console.log("provider Resp data:", prov_respData)
+  
+  if(typeof(prov_respData.results.US) === "undefined")
+  {
+    service_string = "Unknown"
+  }
+  else
+    {
+    // Initialize services array.
+    services = [];
+    if(typeof(prov_respData.results.US.buy) != "undefined")
+    {
+      buy_list = prov_respData.results.US.buy;
+      console.log("buy list:", buy_list);
+      // Get streaming services from buy list.
+      if(buy_list.length > 0)
+      {
+        for(i = 0; i < buy_list.length; i++)
+        {
+          services.push(buy_list[i].provider_name)
+        }
+      }
+      console.log("Services after buy_list:", services)
+    }
+
+    if(typeof(prov_respData.results.US.flatrate) != "undefined")
+    {
+      flatrate_list = prov_respData.results.US.flatrate;
+      console.log("flatrate list:", flatrate_list);
+      if(flatrate_list.length > 0)
+      {
+        // Get streaming services from flat_list.
+        for(i = 0; i < flatrate_list.length; i++)
+        {
+          services.push(flatrate_list[i].provider_name)
+        }
+      }
+      console.log("Services after flatrate_list:", services)
+    }
+
+    // Create the service provider string.
+    service_string = ""
+    if(services.length > 0)
+    {
+      for(i = 0; i < services.length; i++)
+      {
+        if(i == services.length - 1)
+        {
+          service_string = service_string + services[i];
+        }
+        else
+        {
+          service_string = service_string + services[i] + ", ";
+        }
+      }
+    }
+    else
+    {
+      service_string = "Unknown"
+    }
+  }
+  console.log("Service string:", service_string)
 
   const resp = await fetch(url);
   const respData = await resp.json();
@@ -95,7 +149,7 @@ function showMovies(movies, youtubeURL) {
               <h1 class = "sect-title">Streaming Service</h1>
               <div class="service-card">             
                   <div class=""></div>
-                  <p class = "card-text genre-service-text">Disney+</p>
+                  <p class = "card-text genre-service-text">${service_string}</p>
                 </div>
           </div>
       </div>
