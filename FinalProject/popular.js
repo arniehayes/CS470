@@ -6,7 +6,8 @@ const TVAPI =
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
-  "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
+    "https://api.themoviedb.org/3/search/multi?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&page=1&include_adult=false&query=";
+  //"https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -28,6 +29,7 @@ async function getMovies(url) {
     showMovies(respData.results);
 }
 
+
 async function getTV(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
@@ -40,24 +42,33 @@ async function getTV(url) {
 function showTV(TV) {
 
     TV.forEach((show) => {
-      const { poster_path, name, id } = show;
 
-      const tvEL = document.createElement("div");
-      tvEL.classList.add("movie");
+        var rating = false;
+        for (var i = 0; i < show.genre_ids.length; i++) {
+            if (movie.genre_ids[i] == 10762 || movie.genre_ids[i] == 10751) {
+                rating = true;
+            }
+        }
+        if (rating) {
+            const { poster_path, name, id } = show;
 
-      tvEL.innerHTML = `
-            <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
-                <img
-                    src="${IMGPATH + poster_path}"
-                    alt="${name}"
-                />
-            </a>
-            <div class="movie-info">
-                <h3>${name}</h3>
-            </div>
-        `;
+            const tvEL = document.createElement("div");
+            tvEL.classList.add("movie");
 
-      main.appendChild(tvEL);
+            tvEL.innerHTML = `
+                <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
+                    <img
+                        src="${IMGPATH + poster_path}"
+                        alt="${name}"
+                    />
+                </a>
+                <div class="movie-info">
+                    <h3>${name}</h3>
+                </div>
+            `;
+
+            main.appendChild(tvEL);
+        }
     });
 }
 
@@ -66,12 +77,19 @@ function showMovies(movies) {
     main.innerHTML = "";
 
     movies.forEach((movie) => {
-        const { poster_path, title, overview, id, release_date} = movie;
+        var rating = false;
+        for (var i = 0; i < movie.genre_ids.length; i++){
+           if (movie.genre_ids[i] == 10751) {
+                rating = true;
+           }
+        }
+        if (rating) {
+            const { poster_path, title, overview, id, release_date } = movie;
 
-        const movieEl = document.createElement("div");
-        movieEl.classList.add("movie");
+            const movieEl = document.createElement("div");
+            movieEl.classList.add("movie");
 
-        movieEl.innerHTML = `
+            movieEl.innerHTML = `
             <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
                 <img
                     src="${IMGPATH + poster_path}"
@@ -81,8 +99,36 @@ function showMovies(movies) {
             <div class="movie-info">
                 <h3>${title}</h3>
             </div>
+            `;
+            main.appendChild(movieEl);
+        }
+    });
+}
+
+function showSearchMovies(movies) {
+    // clear main
+    main.innerHTML = "";
+
+    movies.forEach((movie) => {
+        
+        const { poster_path, title, overview, id, release_date } = movie;
+
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("movie");
+
+        movieEl.innerHTML = `
+        <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
+            <img
+                src="${IMGPATH + poster_path}"
+                alt="${title}"
+            />
+        </a>
+        <div class="movie-info">
+            <h3>${title}</h3>
+        </div>
         `;
         main.appendChild(movieEl);
+        
     });
 }
 
