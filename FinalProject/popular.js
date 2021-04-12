@@ -5,9 +5,13 @@ const TVAPI =
   "https://api.themoviedb.org/3/discover/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=10762&include_null_first_air_dates=false";
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-const SEARCHAPI =
-    "https://api.themoviedb.org/3/search/multi?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&page=1&include_adult=false&query=";
-  //"https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
+
+const SEARCHAPI1 = 
+    "https://api.themoviedb.org/3/search/multi?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&page=";
+
+const SEARCHAPI2 =
+    "&include_adult=false&query=";
+
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -29,6 +33,15 @@ async function getMovies(url) {
     showMovies(respData.results);
 }
 
+async function getSearchMovies(url) {
+    const resp = await fetch(url);
+    const respData = await resp.json();
+
+    console.log(respData);
+
+    showSearchMovies(respData.results);
+}
+
 
 async function getTV(url) {
   const resp = await fetch(url);
@@ -40,22 +53,17 @@ async function getTV(url) {
 }
 
 function showTV(TV) {
-
     TV.forEach((show) => {
 
-        var rating = false;
-        for (var i = 0; i < show.genre_ids.length; i++) {
-            if (movie.genre_ids[i] == 10762 || movie.genre_ids[i] == 10751) {
-                rating = true;
-            }
-        }
+        var rating = true;
+        
         if (rating) {
             const { poster_path, name, id } = show;
+            if (poster_path != null) {
+                const tvEL = document.createElement("div");
+                tvEL.classList.add("movie");
 
-            const tvEL = document.createElement("div");
-            tvEL.classList.add("movie");
-
-            tvEL.innerHTML = `
+                tvEL.innerHTML = `
                 <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
                     <img
                         src="${IMGPATH + poster_path}"
@@ -65,9 +73,10 @@ function showTV(TV) {
                 <div class="movie-info">
                     <h3>${name}</h3>
                 </div>
-            `;
+                `;
 
-            main.appendChild(tvEL);
+                main.appendChild(tvEL);
+            }
         }
     });
 }
@@ -85,50 +94,56 @@ function showMovies(movies) {
         }
         if (rating) {
             const { poster_path, title, overview, id, release_date } = movie;
+            if (poster_path != null && title != null) {
+                const movieEl = document.createElement("div");
+                movieEl.classList.add("movie");
 
-            const movieEl = document.createElement("div");
-            movieEl.classList.add("movie");
-
-            movieEl.innerHTML = `
-            <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
-                <img
-                    src="${IMGPATH + poster_path}"
-                    alt="${title}"
-                />
-            </a>
-            <div class="movie-info">
-                <h3>${title}</h3>
-            </div>
-            `;
-            main.appendChild(movieEl);
+                movieEl.innerHTML = `
+                <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
+                    <img
+                        src="${IMGPATH + poster_path}"
+                        alt="${title}"
+                    />
+                </a>
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                </div>
+                `;
+                main.appendChild(movieEl);
+            }
         }
     });
 }
 
 function showSearchMovies(movies) {
-    // clear main
-    main.innerHTML = "";
 
     movies.forEach((movie) => {
-        
-        const { poster_path, title, overview, id, release_date } = movie;
+        var rating = false;
+        for (var i = 0; i < movie.genre_ids.length; i++) {
+            if (movie.genre_ids[i] == 10751) {
+                rating = true;
+            }
+        }
+        if (rating) {
+            const { poster_path, title, overview, id, release_date } = movie;
+            if (poster_path != null && title != null) {
+                const movieEl = document.createElement("div");
+                movieEl.classList.add("movie");
 
-        const movieEl = document.createElement("div");
-        movieEl.classList.add("movie");
-
-        movieEl.innerHTML = `
-        <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
-            <img
-                src="${IMGPATH + poster_path}"
-                alt="${title}"
-            />
-        </a>
-        <div class="movie-info">
-            <h3>${title}</h3>
-        </div>
-        `;
-        main.appendChild(movieEl);
-        
+                movieEl.innerHTML = `
+                <a href="movie_description.html" onclick="getID(${id}, '${title}', '${release_date}')">
+                    <img
+                        src="${IMGPATH + poster_path}"
+                        alt="${title}"
+                    />
+                </a>
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                </div>
+                `;
+                main.appendChild(movieEl);
+            }
+        }
     });
 }
 
@@ -147,11 +162,12 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const searchTerm = search.value;
-
     if (searchTerm) {
-        getMovies(SEARCHAPI + searchTerm);
-        getTV(SEARCHAPI + searchTerm);
+        main.innerHTML = "";
+        for (var i = 1; i < 60; i++) {
 
+            getSearchMovies(SEARCHAPI1 + i + SEARCHAPI2 + searchTerm);
+        }
         search.value = "";
     }
 });
