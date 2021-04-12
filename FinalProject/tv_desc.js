@@ -81,7 +81,7 @@ function showTV(movies) {
   // clear main
   main.innerHTML = "";
 
-  const { poster_path, overview, genres, US } = movies;
+  const { poster_path, overview, genres, US, backdrop_path } = movies;
   var genre_string = "";
   console.log("Genres:",genres)
   for (i = 0; i < genres.length; i++) {
@@ -95,12 +95,11 @@ function showTV(movies) {
   const movieEl = document.createElement("div");
   movieEl.classList.add("movie");
 
-    movieEl.innerHTML = `
-  <div class = "image-video">
-          <div class="tv-image-window">
-              <img class = "image" src="${IMGPATH + poster_path}">
-          </div>
-      </div>
+  movieEl.innerHTML = `
+    
+  <div class = "backdrop">
+    <img class="bd-img" src="${IMGPATH + backdrop_path}">
+  </div>
 
       <div class = "genre-service">
           <div class = "genre-container">

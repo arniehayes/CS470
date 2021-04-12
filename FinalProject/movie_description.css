@@ -14,7 +14,11 @@
   }
   
   main {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: transparent;
     width: 100%;
+    justify-content: center;
   }
 
   /* ============ Buttons ===========*/
@@ -113,6 +117,14 @@
 }
 
 .image-video {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: transparent;
+    width: 100%;
+    justify-content: center;
+}
+
+.backdrop {
     display: flex;
     flex-wrap: nowrap;
     background-color: transparent;
