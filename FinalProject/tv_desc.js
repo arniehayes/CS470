@@ -19,102 +19,71 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 
 // initially get fav movies
-getMovies(APIURL);
-getTV(TVAPI);
-
-async function getMovies(url) {
-  const resp = await fetch(url);
-  const respData = await resp.json();
-
-  console.log(respData);
-
-  showMovies(respData.results);
-}
+// getMovies(APIURL);
+getTV(APIURL);
 
 async function getTV(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log(respData);
+  console.log("Resp data:",respData);
 
-  showMovies(respData.results);
-}
+  const prov_resp = await fetch(PROVIDERURL);
+  const prov_respData = await prov_resp.json();
 
-function showTV(TV) {
-  const { US } = TV;
-  var TV_string = "";
-  console.log(US);
-  for (i = 0; i < US.length; i++) {
-    if (US[i] == "buy")
-      for (i = 0; i < 1; i++) {
-        var name = 
-      }
-      TV_string = TV_string + US[i].name;
-  }
-      else {
-      TV_string = TV_string + US[i].name + ", ";
+  console.log("provider Resp data:", prov_respData)
+ 
+  buy_list = prov_respData.results.US.buy;
+  flatrate_list = prov_respData.results.US.flatrate;
+  console.log("buy list:", buy_list);``
+  console.log("flatrate list:", flatrate_list);
+
+  // Initialize services array.
+  services = [];
+  // Get streaming services from buy list.
+  if(buy_list.length > 0)
+  {
+    for(i = 0; i < buy_list.length; i++)
+    {
+      services.push(buy_list[i].provider_name)
     }
   }
+  console.log("Services afte`r buy_list:", services)
 
-  var tv_string = "";
-  console.log(US);
-  for (j = 0; i < ID.length; j++) {
-    if (j == ID.length - 1) {
-      tv_string = tv_string + ID[j].name;
-    } else {
-      tv_string = tv_string + ID[j].name + ", ";
+  if(flatrate_list.length > 0)
+  {
+    // Get streaming services from flat_list.
+    for(i = 0; i < flatrate_list.length; i++)
+    {
+      services.push(flatrate_list[i].provider_name)
     }
   }
-  console.log(tv_string);
+  console.log("Services after flatrate_list:", services)
 
-  const movieEl = document.createElement("div");
-  movieEl.classList.add("movie");
-
-  movieEl.innerHTML = `
-  <div class = "image-video">
-          <div class="tv-image-window">
-              <img class = "image" src="${IMGPATH + poster_path}">
-          </div>
-      </div>
-
-      <div class = "genre-service">
-          <div class = "genre-container">
-              <h1 class = "sect-title">Genre</h1>
-              <div class="genre-card">             
-                  <div class=""></div>
-                  <p class = "card-text genre-service-text">${genre_string}</p>
-                </div>
-          </div>
-          <div class= "service-container">
-              <h1 class = "sect-title">Streaming Service</h1>
-              <div class="service-card">             
-                  <div class=""></div>
-                  <p class = "card-text genre-service-text">${tv_string}</p>
-                </div>
-          </div>
-      </div>
-
-
-      <div class = "description">
-              <h1 class = "sect-title">Description</h1>
-              <div class="card">
-                  <div class ="">            
-                  <p class = "card-text">${overview}</p>
-              </div>
-              </div>
-      </div>
-      `;
-
-  main.appendChild(movieEl);
+  // Create the service provider string.
+  service_string = ""
+  for(i = 0; i < services.length; i++)
+  {
+    if(i == services.length - 1)
+    {
+      service_string = service_string + services[i];
+    }
+    else
+    {
+      service_string = service_string + services[i] + ", ";
+    }
+  }
+  console.log("Service string:", service_string)
+  showTV(respData);
 }
 
-function showMovies(movies) {
+function showTV(movies) {
   // clear main
   main.innerHTML = "";
 
   const { poster_path, overview, genres, US } = movies;
   var genre_string = "";
-  console.log(genres)
+  console.log("Genres:",genres)
   for (i = 0; i < genres.length; i++) {
     if (i == genres.length - 1) {
       genre_string = genre_string + genres[i].name;
@@ -122,18 +91,6 @@ function showMovies(movies) {
       genre_string = genre_string + genres[i].name + ", ";
     }
   }
-
-  var tv_string = "";
-  console.log(US);
-  for (j = 0; i < ID.length; j++) {
-    if (j == ID.length - 1) {
-      tv_string = tv_string + ID[j].name;
-    } else {
-      tv_string = tv_string + ID[j].name + ", ";
-    }
-  }
-  console.log(tv_string);
-
 
   const movieEl = document.createElement("div");
   movieEl.classList.add("movie");
@@ -157,7 +114,7 @@ function showMovies(movies) {
               <h1 class = "sect-title">Streaming Service</h1>
               <div class="service-card">             
                   <div class=""></div>
-                  <p class = "card-text genre-service-text">${tv_string}</p>
+                  <p class = "card-text genre-service-text">${service_string}</p>
                 </div>
           </div>
       </div>
