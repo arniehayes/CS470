@@ -180,3 +180,50 @@ nav a:focus {
 }
 
 
+/* LOGO */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+.title {
+	font-family: "Montserrat";
+  text-align: center;
+	color: #FFF;
+	display: flex;
+  flex-direction: column;
+  float: left;
+  margin: 2em;
+	height: 1vh;
+	letter-spacing: 1px;
+}
+
+h1 {
+	background-image: url(https://media0.giphy.com/media/3otO6NFBIAFg2vPZuM/giphy.gif?cid=ecf05e47mi4exl9yfjnmu4wlc0yn81rgvyhqpdbcnskm41xk&rid=giphy.gif&ct=g);
+	background-size: cover;
+	color: transparent;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+	text-transform: uppercase;
+	font-size: 50px;
+	line-height: .75;
+	margin: 10px 0;
+}
+/* styling my button */
+
+.white-mode {
+	text-decoration: none;
+	padding: 7px 10px;
+	background-color: #122;
+	border-radius: 3px;
+	color: #FFF;
+	transition: .35s ease-in-out;
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+	font-family: "Montserrat";
+}
+
+.white-mode:hover {
+	background-color: #FFF;
+	color: #122;
+}
+
