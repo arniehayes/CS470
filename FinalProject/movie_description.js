@@ -7,7 +7,7 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyAFk7LnUM9ZEN66Ki86ZIAaal9nZBYosgg"
+youtube_key = "AIzaSyBGFtH68BFY9L-iNkVF1IuzZdWYiIRqg_A"
 const PROVIDERURL =
   "https://api.themoviedb.org/3/movie/" +
   localStorage.getItem("storageName") +

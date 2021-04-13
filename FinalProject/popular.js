@@ -1,8 +1,10 @@
-const APIURL =
-  "https://api.themoviedb.org/3/discover/movie?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&certification_country=US&certification=G&include_adult=false&include_video=false&page=1";
+APIURL =
+  "https://api.themoviedb.org/3/discover/movie?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&certification_country=US&certification=G&include_adult=false&include_video=false&page=";
 
-const TVAPI =
-  "https://api.themoviedb.org/3/discover/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=10762&include_null_first_air_dates=false";
+TVAPI1 =
+  "https://api.themoviedb.org/3/discover/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&page="
+  
+TVAPI2 = "&timezone=America%2FNew_York&with_genres=10762&include_null_first_air_dates=false";
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
@@ -25,8 +27,14 @@ const search = document.getElementById("search");
 
 
 // initially get fav movies
-getMovies(APIURL);
-getTV(TVAPI);
+for(i = 1; i < 50; i++)
+{
+    //getMovies(APIURL + i);
+}
+for(i = 1; i < 50; i++)
+{
+    getTV(TVAPI1 + i + TVAPI2);
+}
 
 async function getMovies(url) {
     const resp = await fetch(url);
@@ -62,7 +70,11 @@ function showTV(TV) {
         var rating = false;
         const { poster_path, name, id, genre_ids } = show;
         for (var i = 0; i < genre_ids.length - 1; i++) {
-            if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
+            if(genre_ids[i] == 27)
+            {
+                break;
+            }
+            else if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
                 rating = true;
             }
         }
@@ -92,7 +104,7 @@ function showTV(TV) {
 
 function showMovies(movies) {
     // clear main
-    main.innerHTML = "";
+    // main.innerHTML = "";
 
     movies.forEach((movie) => {
 
