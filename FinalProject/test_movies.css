@@ -24,6 +24,11 @@ header {
     margin-bottom: 3em;
 }
 
+.page-name {
+    color: #fff;
+    font-size: 30px;
+}
+
 .form {
     background-color: transparent;
     border: 2px solid #22254b;

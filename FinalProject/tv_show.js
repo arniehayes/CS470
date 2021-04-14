@@ -111,3 +111,10 @@ function genreClick() {
 function servicesClick() {
   document.getElementById("servicesDropdown").classList.toggle("show");
 }
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const searchTerm = search.value;
+  localStorage.setItem("lookup", searchTerm)
+  window.location.href = "results.html"
+});
