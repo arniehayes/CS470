@@ -142,14 +142,7 @@ function getID(clickedID, clickedTitle, clickedRelease) {
 // NEED TO
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const searchTerm = search.value;
-  if (searchTerm) {
-    main.innerHTML = "";
-    for (var i = 1; i < 100; i++) {
-      getSearchMovies(SEARCHAPI1 + i + SEARCHAPI2 + searchTerm);
-      getTV(TVSEARCHAPI1 + i + SEARCHAPI2 + searchTerm);
-    }
-    search.value = "";
-  }
+  localStorage.setItem("lookup", searchTerm)
+  window.location.href = "results.html"
 });

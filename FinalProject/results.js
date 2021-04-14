@@ -21,13 +21,33 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-// initially get fav movies
-for (i = 1; i < 50; i++) {
-  getMovies(APIURL + i);
+setTitle()
+
+function setTitle()
+{
+    const element = document.createElement("div");
+    h3 = document.createElement("h3");
+    h3.classList.add("page-name")
+    searchTerm = localStorage.getItem("lookup");
+    h3.textContent = "search result for \"" + searchTerm +"\"";
+    element.appendChild(h3)
+    document.body.appendChild(element)
+    // searchElement.classList.add("page-name");
+    // searchElement.innerHTML = 
+    //   `
+    // <h3>Search result for "${localStorage.getItem("lookup")}"</h3>
+    //   `;
+    // main.appendChild(searchElement);
 }
-for (i = 1; i < 50; i++) {
-  getTV(TVAPI1 + i + TVAPI2);
-}
+
+if (localStorage.getItem("lookup")) {
+    main.innerHTML = "";
+    for (var i = 1; i < 100; i++) {
+      getMovies(SEARCHAPI1 + i + SEARCHAPI2 + localStorage.getItem("lookup"));
+      getTV(TVSEARCHAPI1 + i + SEARCHAPI2 + localStorage.getItem("lookup"));
+    }
+    search.value = "";
+  }
 
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -129,7 +149,6 @@ function showMovies(movies) {
   });
 }
 
-
 function getID(clickedID, clickedTitle, clickedRelease) {
   localStorage.setItem("storageName", clickedID);
   localStorage.setItem("storageTitle", clickedTitle);
@@ -138,11 +157,9 @@ function getID(clickedID, clickedTitle, clickedRelease) {
   localStorage.setItem("releaseYear", release);
 }
 
-// Search
-// NEED TO
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const searchTerm = search.value;
-  localStorage.setItem("lookup", searchTerm)
-  window.location.href = "results.html"
-});
+    e.preventDefault();
+    const searchTerm = search.value;
+    localStorage.setItem("lookup", searchTerm);
+    window.location.href = "results.html";
+  });
