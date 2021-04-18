@@ -129,6 +129,13 @@ function showMovies(movies) {
   });
 }
 
+function genreClick() {
+  document.getElementById("genreDropdown").classList.toggle("show");
+}
+
+function servicesClick() {
+  document.getElementById("servicesDropdown").classList.toggle("show");
+}
 
 function getID(clickedID, clickedTitle, clickedRelease) {
   localStorage.setItem("storageName", clickedID);
