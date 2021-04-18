@@ -25,7 +25,7 @@ setTitle()
 
 function setTitle()
 {
-    const element = document.createElement("div");
+  const element = document.createElement("div");
     h3 = document.createElement("h3");
     h3.classList.add("page-name")
     searchTerm = localStorage.getItem("lookup");
