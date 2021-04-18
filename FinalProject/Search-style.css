@@ -19,7 +19,14 @@ section::after {
     clear: both;
 }
 
-
+main {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2em;
+}
 
 /* header
 ==============================*/

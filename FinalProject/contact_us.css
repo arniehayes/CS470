@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 * {
   transition: all 0.3s ease-out;
 }
 
 .header {
     width: 100%;
-    height: 15vh;
-    background-color: transparent;
+    height: 2em;
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-bottom: 50px;
     margin: 0;
     align-items: center;
@@ -17,14 +19,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background-image: url(Images/dark.jpeg);
-  background-size: cover;
+  width: 100%;
+  text-align: center;
 }
 
 
 /* ============ NAV ============*/
 
+nav{
+    margin: 0;
+}
+
+.nav-text{
+    color: #fff;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 1.2em;
+}
+
 nav ul{
-    margin: 2em;
+    margin: 1em;
     padding: 0;
     list-style: none;
 }
@@ -278,7 +291,8 @@ section {
 	display: flex;
     flex-direction: column;
     float: left;
-    margin: 2em;
+    margin: .5em;
+    margin-left: 1em;
 	height: 2vh;
 	letter-spacing: 1px;
 }
@@ -314,3 +328,11 @@ h1 {
 	color: #122;
 }
 
+.home-page-icon {
+    text-decoration: none;
+}
+
+
+section {
+  margin-top: 5em;
+}
