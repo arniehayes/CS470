@@ -42,16 +42,14 @@
   </div>
   <section class = "mid-top-section">
         <div class="dropdown">
-            <button onclick="genreClick()" class="dropbtn">Genre</button>
+            <button onclick="genreClick()" class="dropbtn" id="GDrop">Genre</button>
                 <div id="genreDropdown" class="dropdown-content">
-                    <p href="#">Action</p>
-                    <p href="#">Mystery</p>
-                    <p href="#">Comedy</p>
-                    <p href="#">Fiction</p>
-                    <p href="#">Fantasy</p>
-                    <p href="#">Science Fiction</p>
-                    <p href="#">Animated</p>
-                    <p href="#">Educational</p>
+                    <p onclick="GenreFilter(0)">All</p>
+                    <p onclick="GenreFilter(10759)">Action and Adv.</p>
+                    <p onclick="GenreFilter(16)">Animation</p>
+                    <p onclick="GenreFilter(35)">Comedy</p>
+                    <p onclick="GenreFilter(9648)">Mystery</p>
+                    <p onclick="GenreFilter(10765)">SciFi and Fantasy</p>
                 </div>
         </div>
         <div class="dropdown">

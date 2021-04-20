@@ -16,17 +16,32 @@ const SEARCHAPI =
     "https://api.themoviedb.org/3/discover/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&page=";
 
   TVAPI2 =
-    "&timezone=America%2FNew_York&with_genres=10762&include_null_first_air_dates=false";
+    "&timezone=America%2FNew_York&with_genres=10762";
+
+  TVAPI3 = 
+    "&include_null_first_air_dates=false";
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-// initially get fav movies
+serviceid = 0;
+genreid = 0;
 
-for (i = 1; i < 50; i++) {
-  getTV(TVAPI1 + i + TVAPI2);
+function searchTV(){
+    servicetag = "";
+    genretag = "";
+    if(serviceid)
+        servicetag = "&with_watch_providers=" + serviceid + "&watch_region=US";
+    if(genreid)
+        genretag = "," + genreid;
+    for (i = 1; i < 50; i++) {
+        getTV(TVAPI1 + i + TVAPI2 + genretag + TVAPI3 + servicetag);
+    }
 }
+
+// initially get fav TV shows
+searchTV();
 
 
 async function getTV(url) {
@@ -113,14 +128,10 @@ function servicesClick() {
 
 function StreamingFilter(ID){
     main.innerHTML = "";
-    if(ID)
-        getTV(TVAPI + "&with_watch_providers=" + ID + "&watch_region=US");
-    else{
-        getTV(TVAPI);
+    serviceid = ID;
+    if(!ID)
         document.getElementById("SSDrop").innerHTML = "Streaming Service";
-        return;
-    }
-    if(ID == 15)
+    else if(ID == 15)
         document.getElementById("SSDrop").innerHTML = "Hulu";
     else if(ID == 8)
         document.getElementById("SSDrop").innerHTML = "Netflix";
@@ -128,6 +139,26 @@ function StreamingFilter(ID){
         document.getElementById("SSDrop").innerHTML = "Amazon Prime";
     else
         document.getElementById("SSDrop").innerHTML = "Peacock";
+    searchTV();
+}
+
+function GenreFilter(ID){
+    main.innerHTML = "";
+    genreid = ID;
+    if(!ID){
+        document.getElementById("GDrop").innerHTML = "Genre";
+    }
+    else if(ID == 10759)
+        document.getElementById("GDrop").innerHTML = "Action and Adv.";
+    else if(ID == 16)
+        document.getElementById("GDrop").innerHTML = "Animation";
+    else if(ID == 35)
+        document.getElementById("GDrop").innerHTML = "Comedy";
+    else if(ID == 9648)
+        document.getElementById("GDrop").innerHTML = "Mystery";
+    else
+        document.getElementById("GDrop").innerHTML = "SciFi and Fantasy";
+    searchTV();
 }
 
 // Close the dropdown menu if the user clicks outside of it
