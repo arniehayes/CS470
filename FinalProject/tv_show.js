@@ -113,7 +113,21 @@ function servicesClick() {
 
 function StreamingFilter(ID){
     main.innerHTML = "";
-    getTV(TVAPI + "&with_watch_providers=" + ID + "&watch_region=US");
+    if(ID)
+        getTV(TVAPI + "&with_watch_providers=" + ID + "&watch_region=US");
+    else{
+        getTV(TVAPI);
+        document.getElementById("SSDrop").innerHTML = "Streaming Service";
+        return;
+    }
+    if(ID == 15)
+        document.getElementById("SSDrop").innerHTML = "Hulu";
+    else if(ID == 8)
+        document.getElementById("SSDrop").innerHTML = "Netflix";
+    else if(ID == 9)
+        document.getElementById("SSDrop").innerHTML = "Amazon Prime";
+    else
+        document.getElementById("SSDrop").innerHTML = "Peacock";
 }
 
 // Close the dropdown menu if the user clicks outside of it

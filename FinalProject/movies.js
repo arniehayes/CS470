@@ -17,17 +17,27 @@ SEARCHAPI2 = "&include_adult=false&query=";
 TVSEARCHAPI1 =
   "https://api.themoviedb.org/3/search/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&page=";
 
+genreid = 0;
+serviceid = 0;
+
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
+function searchMovie(){
+    servicetag = "";
+    genretag = "";
+    if(serviceid)
+        servicetag = "&with_watch_providers=" + serviceid + "&watch_region=US";
+    if(genreid)
+        genretag = "&with_genres=" + genreid;
+    for (i = 1; i < 50; i++) {
+        getMovies(APIURL + i + genretag + servicetag);
+    }
+}
+
 // initially get fav movies
-for (i = 1; i < 50; i++) {
-  getMovies(APIURL + i);
-}
-for (i = 1; i < 50; i++) {
-  getTV(TVAPI1 + i + TVAPI2);
-}
+searchMovie();
 
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -160,7 +170,42 @@ function genreClick() {
 
 function StreamingFilter(ID){
     main.innerHTML = "";
-    getMovies(APIURL + "&with_watch_providers=" + ID + "&watch_region=US");
+    serviceid = ID;
+    if(!ID){
+        document.getElementById("SSDrop").innerHTML = "Streaming Service";
+    }
+    else if(ID == 15)
+        document.getElementById("SSDrop").innerHTML = "Hulu";
+    else if(ID == 8)
+        document.getElementById("SSDrop").innerHTML = "Netflix";
+    else if(ID == 9)
+        document.getElementById("SSDrop").innerHTML = "Amazon Prime";
+    else
+        document.getElementById("SSDrop").innerHTML = "Peacock";
+    searchMovie();
+}
+
+function GenreFilter(ID){
+    main.innerHTML = "";
+    genreid = ID;
+    if(!ID){
+        document.getElementById("GDrop").innerHTML = "Genre";
+    }
+    else if(ID == 28)
+        document.getElementById("GDrop").innerHTML = "Action";
+    else if(ID == 12)
+        document.getElementById("GDrop").innerHTML = "Adventure";
+    else if(ID == 16)
+        document.getElementById("GDrop").innerHTML = "Animation";
+    else if(ID == 35)
+        document.getElementById("GDrop").innerHTML = "Comedy";
+    else if(ID == 14)
+        document.getElementById("GDrop").innerHTML = "Fantasy";
+    //else if(ID == 9648)
+        //document.getElementById("GDrop").innerHTML = "Mystery";
+    else
+        document.getElementById("GDrop").innerHTML = "SciFi";
+    searchMovie();
 }
 
 function servicesClick() {

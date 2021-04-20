@@ -44,19 +44,22 @@
         <div class="dropdown">
             <button onclick="genreClick()" class="dropbtn">Genre</button>
                 <div id="genreDropdown" class="dropdown-content">
-                    <a href="#">Action</a>
-                    <a href="#">Mystery</a>
-                    <a href="#">Comedy</a>
-                    <a href="#">Fiction</a>
-                    <a href="#">Fantasy</a>
-                    <a href="#">Science Fiction</a>
-                    <a href="#">Animated</a>
-                    <a href="#">Educational</a>
+                    <p href="#">Action</p>
+                    <p href="#">Mystery</p>
+                    <p href="#">Comedy</p>
+                    <p href="#">Fiction</p>
+                    <p href="#">Fantasy</p>
+                    <p href="#">Science Fiction</p>
+                    <p href="#">Animated</p>
+                    <p href="#">Educational</p>
                 </div>
         </div>
         <div class="dropdown">
-            <button onclick="servicesClick()" class="dropbtn">Streaming Services</button>
+            <button onclick="servicesClick()" class="dropbtn" id="SSDrop">Streaming Services</button>
                 <div id="servicesDropdown" class="dropdown-content">
+                    <div class="sslogo_tab" onclick="StreamingFilter(0)">
+        <p> All </p>
+                    </div>
                     <div class="sslogo_tab">
         <img src="Images/streaming_logos/youtube_premium.png" class="sslogo" />
                     </div>
@@ -72,6 +75,7 @@
                     <div class="sslogo_tab" onclick="StreamingFilter(387)">
         <img src="Images/streaming_logos/peacock.png" class="sslogo" />
                     </div>
+                
                 </div>
         </div>
       </section>
