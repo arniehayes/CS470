@@ -141,14 +141,14 @@ function showMovies(movies, youtubeURL) {
 
       <div class = "genre-service">
           <div class = "genre-container">
-              <h1 class = "sect-title">Genre</h1>
+              <h1 class = "sect-name">Genre</h1>
               <div class="genre-card">             
                   <div class=""></div>
                   <p class = "card-text genre-service-text">${genre_string}</p>
                 </div>
           </div>
           <div class= "service-container">
-              <h1 class = "sect-title">Streaming Service</h1>
+              <h1 class = "sect-name">Streaming Service</h1>
               <div class="service-card">             
                   <div class=""></div>
                   <p class = "card-text genre-service-text">${service_string}</p>
@@ -158,7 +158,7 @@ function showMovies(movies, youtubeURL) {
 
 
       <div class = "description">
-              <h1 class = "sect-title">Description</h1>
+              <h1 class = "sect-name">Description</h1>
               <div class="card">
                   <div class ="">            
                   <p class = "card-text">${overview}</p>
@@ -173,19 +173,7 @@ function showMovies(movies, youtubeURL) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const searchTerm = search.value;
-
-  if (searchTerm) {
-    getMovies(SEARCHAPI + searchTerm);
-
-    search.value = "";
-  }
+  localStorage.setItem("lookup", searchTerm)
+  window.location.href = "results.html"
 });
-
-/*var backdropIMG = IMGPATH + backdrop_path;
-
-function setBackdrop() {
-  document.body.style.backgroundImage =
-    "backdropIMG";
-}*/
