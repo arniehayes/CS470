@@ -333,6 +333,7 @@ nav a:focus {
   display: inline-block;
   margin: 0;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -341,9 +342,10 @@ nav a:focus {
   position: absolute;
   background-color: black;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  cursor: pointer;
 }
+
 
 /* Links inside the genre dropdown */
 .dropdown-content p {
@@ -351,32 +353,34 @@ nav a:focus {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 }
 
 .dropdown-content sslogo_tab {
   color: #1EC71E;
   display: block;
-  margin: 1em 0.5em;
+  margin: 0;
   max-width: 100%;
+  cursor: pointer;
 }
 
 .sslogo {
-    max-width: 70%;
+    max-width: 171px;
     max-height: 80%;
-    width: auto;
-    height: auto;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    float: left;
+    cursor: pointer;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content p:hover {background-color: skyblue}
-.dropdown-content sslogo_tab:hover {color: #1FC21F}
 .dropdown-content sslogo_tab:hover {background-color: skyblue}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+.show {
+    display:block;
+    width: 89.5%;
+}
 
 .page-name {
     color: #fff;
