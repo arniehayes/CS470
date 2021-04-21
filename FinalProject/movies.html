@@ -42,35 +42,37 @@
   </div>
   <section class = "mid-top-section">
         <div class="dropdown">
-            <button onclick="genreClick()" class="dropbtn">Genre</button>
+            <button onclick="genreClick()" class="dropbtn" id="GDrop">Genre</button>
                 <div id="genreDropdown" class="dropdown-content">
-                    <a href="#">Action</a>
-                    <a href="#">Mystery</a>
-                    <a href="#">Comedy</a>
-                    <a href="#">Fiction</a>
-                    <a href="#">Fantasy</a>
-                    <a href="#">Science Fiction</a>
-                    <a href="#">Animated</a>
-                    <a href="#">Educational</a>
+                    <p onclick="GenreFilter(0)">All</p>
+                    <p onclick="GenreFilter(28)">Action</p>
+                    <p onclick="GenreFilter(12)">Adventure</p>
+                    <p onclick="GenreFilter(16)">Animation</p>
+                    <p onclick="GenreFilter(35)">Comedy</p>
+                    <p onclick="GenreFilter(14)">Fantasy</p>
+                    <p onclick="GenreFilter(878)">SciFi</p>
                 </div>
         </div>
         <div class="dropdown">
-            <button onclick="servicesClick()" class="dropbtn">Streaming Services</button>
+            <button onclick="servicesClick()" class="dropbtn" id="SSDrop">Streaming Services</button>
                 <div id="servicesDropdown" class="dropdown-content">
-                    <div class="sslogo_tab">
-        <img src="Images/streaming_logos/youtube_premium.png" class="sslogo" />
+                    <div class="sslogo_tab" onclick="StreamingFilter(0)">
+        <p> All </p>
                     </div>
-                    <div class="sslogo_tab">
+                    <!--<div class="sslogo_tab">
+        <img src="Images/streaming_logos/youtube_premium.png" class="sslogo" />
+                    </div>-->
+                    <div class="sslogo_tab" onclick="StreamingFilter(15)">
         <img src="Images/streaming_logos/hulu.png" class="sslogo" />
                     </div>
-                    <div class="sslogo_tab">
+                    <div class="sslogo_tab" onclick="StreamingFilter(8)">
         <img src="Images/streaming_logos/netflix.jpg" class="sslogo" />
                     </div>
-                    <div class="sslogo_tab">
+                    <div class="sslogo_tab" onclick="StreamingFilter(9)">
         <img src="Images/streaming_logos/amazon_prime.jpg" class="sslogo" />
                     </div>
-                    <div class="sslogo_tab">
-        <img src="Images/streaming_logos/tubi.jpg" class="sslogo" />
+                    <div class="sslogo_tab" onclick="StreamingFilter(387)">
+        <img src="Images/streaming_logos/peacock.png" class="sslogo" />
                     </div>
                 
                 </div>
