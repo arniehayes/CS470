@@ -50,7 +50,10 @@ async function getMovies(url) {
     }
   }
   // If there was no match just grab the first video on the search result.
-  chosen_vid_id = youtube_results[0].id.videoId
+  if(chosen_vid_id === "")
+  {
+    chosen_vid_id = youtube_results[0].id.videoId;
+  }
 
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + chosen_vid_id;
