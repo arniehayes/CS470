@@ -21,9 +21,30 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-setTitle()
+setResult()
 
-function setTitle()
+// Check for excluded genres.
+function isExcluded(ID)
+{
+  if(ID == 27 || ID == 99 || ID == 80 || ID == 18 || ID == 10764)
+  {
+    return true
+  }
+  return false
+}
+
+// Check for included genres.
+function isIncluded(ID)
+{
+  if(ID == 10751 || ID == 10762)
+  {
+    return true
+  }
+  return false
+}
+
+// Display the search query that the user input.
+function setResult()
 {
   const element = document.createElement("div");
     h3 = document.createElement("h3");
@@ -32,12 +53,6 @@ function setTitle()
     h3.textContent = "search result for \"" + searchTerm +"\"";
     element.appendChild(h3)
     document.body.appendChild(element)
-    // searchElement.classList.add("page-name");
-    // searchElement.innerHTML = 
-    //   `
-    // <h3>Search result for "${localStorage.getItem("lookup")}"</h3>
-    //   `;
-    // main.appendChild(searchElement);
 }
 
 if (localStorage.getItem("lookup")) {
@@ -78,12 +93,22 @@ async function getTV(url) {
 
 function showTV(TV) {
   TV.forEach((show) => {
-    // Checking if the rating is family: 10762 or child: 10751
     var rating = false;
     const { poster_path, name, id, genre_ids } = show;
-    for (var i = 0; i < genre_ids.length - 1; i++) {
-      if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
-        rating = true;
+    if(typeof(genre_ids) != "undefined")
+    {
+      for (var i = 0; i < genre_ids.length - 1; i++) 
+      {
+        // Check for invalid genres.
+        if (isExcluded(genre_ids[i]) == true) {
+          rating = false;
+          break;
+        }
+        // Check for valid genres.
+        if (isIncluded(genre_ids[i]) == true) 
+        {
+          rating = true;
+        }
       }
     }
     if (rating) {
@@ -115,14 +140,22 @@ function showMovies(movies) {
   //main.innerHTML = "";
 
   movies.forEach((movie) => {
-    // Checking if the rating is family: 10762
     var rating = false;
-    for (var i = 0; i < movie.genre_ids.length - 1; i++) {
-      if (movie.genre_ids[i] == 27 || movie.genre_ids[i] == 99) {
-        break;
-      }
-      if (movie.genre_ids[i] == 10751) {
-        rating = true;
+    const {genre_ids} = movie
+    if(typeof(genre_ids) != "undefined")
+    {
+      for (var i = 0; i < genre_ids.length - 1; i++)
+      {
+        // Check for invalid genres.
+        if (isExcluded(genre_ids[i]) == true) {
+          rating = false;
+          break;
+        }
+        // Check for valid genres.
+        if (isIncluded(genre_ids[i]) == true) 
+        {
+          rating = true;
+        }
       }
     }
     if (rating) {

@@ -34,7 +34,7 @@ async function getMovies(url) {
   const y_respData = await y_resp.json();
   console.log("YouTube API return:",y_respData);
   chosen_vid_id = "";
-  // Check through each result of the youtube search in order to get the 
+  // Check through each result of the youtube search in order to get the trailer
   youtube_results = y_respData.items;
   console.log("Youtube Video results:", youtube_results)
   for(i = 0; i < youtube_results.length; i++)
@@ -48,7 +48,9 @@ async function getMovies(url) {
       chosen_vid_id = youtube_results[i].id.videoId;
       break;
     }
-  } 
+  }
+  // If there was no match just grab the first video on the search result.
+  chosen_vid_id = youtube_results[0].id.videoId
 
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + chosen_vid_id;
