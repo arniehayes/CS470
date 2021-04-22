@@ -7,7 +7,7 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyAFk7LnUM9ZEN66Ki86ZIAaal9nZBYosgg"
+youtube_key = "AIzaSyAYn-zgow3r768rIgaXMhiK7XzGETLUInw";
 const PROVIDERURL =
   "https://api.themoviedb.org/3/movie/" +
   localStorage.getItem("storageName") +
@@ -26,14 +26,32 @@ getMovies(APIURL);
 async function getMovies(url) {
   // Construct YouTube API search for the movie trailer
   youtube_search = localStorage.getItem("storageTitle") + ' ' + localStorage.getItem("releaseYear") + " Trailer";
+  youtube_search = youtube_search.replaceAll(" ", "+");
   console.log("Search:", youtube_search)
-  APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + youtube_search + "&key=" + youtube_key;
+  APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoSyndicated=any&q=" + youtube_search + "&key=" + youtube_key;
 
   const y_resp = await fetch(APIsearch);
   const y_respData = await y_resp.json();
   console.log("YouTube API return:",y_respData);
+  chosen_vid_id = "";
+  // Check through each result of the youtube search in order to get the 
+  youtube_results = y_respData.items;
+  console.log("Youtube Video results:", youtube_results)
+  for(i = 0; i < youtube_results.length; i++)
+  {
+    // Check if the video has the word "trailer" in it
+    lowercaseTitle = youtube_results[i].snippet.title.toLowerCase();
+    console.log("Title searched:", lowercaseTitle)
+    if(lowercaseTitle.includes("trailer") == true)
+    {
+      console.log("Chosen title:", youtube_results[i].snippet.title)
+      chosen_vid_id = youtube_results[i].id.videoId;
+      break;
+    }
+  } 
+
   // Construct Youtube video URL
-  youtube_url = "https://www.youtube.com/embed/" + y_respData.items[0].id.videoId
+  youtube_url = "https://www.youtube.com/embed/" + chosen_vid_id;
   console.log("Youtube Video URL:", youtube_url)
 
   const prov_resp = await fetch(PROVIDERURL);
