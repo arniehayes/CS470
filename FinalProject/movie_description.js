@@ -190,6 +190,7 @@ function showMovies(movies, youtubeURL) {
                     img_obj = document.createElement("img");
                     img_obj.setAttribute("src", img_src);
                     img_obj.setAttribute("alt", alternative);
+                    img_obj.classList.add("stream-icon");
                     service_card.appendChild(img_obj)
                   }
                   movieEl.innerHTML +=
