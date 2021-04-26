@@ -343,6 +343,7 @@ nav a:focus {
   background-color: black;
   z-index: 1;
   cursor: pointer;
+  min-width: 100%;
 }
 
 /* Links inside the genre dropdown */
