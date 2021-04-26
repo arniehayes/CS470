@@ -7,7 +7,7 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyAYn-zgow3r768rIgaXMhiK7XzGETLUInw";
+youtube_key = "AIzaSyARkx4oX8mCmYJlyECthg1UMrOZKXJy5E8";
 const PROVIDERURL =
   "https://api.themoviedb.org/3/movie/" +
   localStorage.getItem("storageName") +
@@ -72,6 +72,8 @@ async function getMovies(url) {
     {
     // Initialize services array.
     services = [];
+    // Initialize servie logo array.
+    service_logos = [];
     if(typeof(prov_respData.results.US.buy) != "undefined")
     {
       buy_list = prov_respData.results.US.buy;
@@ -82,9 +84,11 @@ async function getMovies(url) {
         for(i = 0; i < buy_list.length; i++)
         {
           services.push(buy_list[i].provider_name)
+          service_logos.push(buy_list[i].logo_path)
         }
       }
       console.log("Services after buy_list:", services)
+      console.log("Service logos buy_list:", service_logos)
     }
 
     if(typeof(prov_respData.results.US.flatrate) != "undefined")
@@ -97,9 +101,11 @@ async function getMovies(url) {
         for(i = 0; i < flatrate_list.length; i++)
         {
           services.push(flatrate_list[i].provider_name)
+          service_logos.push(flatrate_list[i].logo_path)
         }
       }
       console.log("Services after flatrate_list:", services)
+      console.log("Service logos flatrate_list:", service_logos)
     }
 
     // Create the service provider string.
@@ -169,15 +175,25 @@ function showMovies(movies, youtubeURL) {
                   <div class=""></div>
                   <p class = "card-text genre-service-text">${genre_string}</p>
                 </div>
-          </div>
-          <div class= "service-container">
+
+                <div class= "service-container">
               <h1 class = "sect-name">Streaming Service</h1>
-              <div class="service-card">             
-                  <div class=""></div>
-                  <p class = "card-text genre-service-text">${service_string}</p>
-                </div>
-          </div>
-      </div>
+              <div id = "service-card" class="service-card">             
+                  `;
+                main.appendChild(movieEl);
+                service_card = document.getElementById("service-card")
+                console.log(service_card)
+                  for(i = 0; i < service_logos.length; i++)
+                  {
+                    img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
+                    alternative = services[i];
+                    img_obj = document.createElement("img");
+                    img_obj.setAttribute("src", img_src);
+                    img_obj.setAttribute("alt", alternative);
+                    service_card.appendChild(img_obj)
+                  }
+                  movieEl.innerHTML +=
+                  `
 
 
       <div class = "description">
