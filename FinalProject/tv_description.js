@@ -124,6 +124,8 @@ function showTV(movies) {
                 main.appendChild(movieEl);
                 service_card = document.getElementById("service-card")
                 console.log(service_card)
+                if(typeof(services_logos) != "undefined")
+                {
                   for(i = 0; i < service_logos.length; i++)
                   {
                     img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
@@ -134,6 +136,7 @@ function showTV(movies) {
                     img_obj.classList.add("stream-icon");
                     service_card.appendChild(img_obj)
                   }
+                }
                   movieEl.innerHTML +=
                   `
           </div>
