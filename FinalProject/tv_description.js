@@ -35,36 +35,25 @@ async function getTV(url) {
   }
   else
     {
-    // Initialize services array.
-    services = [];
-    if(typeof(prov_respData.results.US.buy) != "undefined")
-    {
-      buy_list = prov_respData.results.US.buy;
-      console.log("buy list:", buy_list);
-      // Get streaming services from buy list.
-      if(buy_list.length > 0)
-      {
-        for(i = 0; i < buy_list.length; i++)
+        // Initialize services array.
+        services = [];
+        // Initialize servie logo array.
+        service_logos = [];
+        if(typeof(prov_respData.results.US.buy) != "undefined")
         {
-          services.push(buy_list[i].provider_name)
-        }
-      }
-      console.log("Services after buy_list:", services)
-    }
-
-    if(typeof(prov_respData.results.US.flatrate) != "undefined")
-    {
-      flatrate_list = prov_respData.results.US.flatrate;
-      console.log("flatrate list:", flatrate_list);
-      if(flatrate_list.length > 0)
-      {
-        // Get streaming services from flat_list.
-        for(i = 0; i < flatrate_list.length; i++)
-        {
-          services.push(flatrate_list[i].provider_name)
-        }
-      }
-      console.log("Services after flatrate_list:", services)
+          buy_list = prov_respData.results.US.buy;
+          console.log("buy list:", buy_list);
+          // Get streaming services from buy list.
+          if(buy_list.length > 0)
+          {
+            for(i = 0; i < buy_list.length; i++)
+            {
+              services.push(buy_list[i].provider_name)
+              service_logos.push(buy_list[i].logo_path)
+            }
+          }
+          console.log("Services after buy_list:", services)
+          console.log("Service logos buy_list:", service_logos)
     }
 
     // Create the service provider string.
@@ -130,14 +119,24 @@ function showTV(movies) {
           </div>
           <div class= "service-container">
               <h1 class = "sect-name">Streaming Service</h1>
-              <div class="service-card">             
-                  <div class=""></div>
-                  <p class = "card-text genre-service-text">${service_string}</p>
-                </div>
+              <div id = "service-card" class="service-card">             
+                  `;
+                main.appendChild(movieEl);
+                service_card = document.getElementById("service-card")
+                console.log(service_card)
+                  for(i = 0; i < service_logos.length; i++)
+                  {
+                    img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
+                    alternative = services[i];
+                    img_obj = document.createElement("img");
+                    img_obj.setAttribute("src", img_src);
+                    img_obj.setAttribute("alt", alternative);
+                    service_card.appendChild(img_obj)
+                  }
+                  movieEl.innerHTML +=
+                  `
           </div>
       </div>
-
-
       <div class = "description">
               <h1 class = "sect-name">Description</h1>
               <div class="card">
