@@ -64,16 +64,16 @@ async function getMovies(url) {
 
   console.log("provider Resp data:", prov_respData)
   
+  // Initialize services array.
+  services = [];
+  // Initialize servie logo array.
+  service_logos = [];
   if(typeof(prov_respData.results.US) === "undefined")
   {
     service_string = "Unknown"
   }
   else
     {
-    // Initialize services array.
-    services = [];
-    // Initialize servie logo array.
-    service_logos = [];
     if(typeof(prov_respData.results.US.buy) != "undefined")
     {
       buy_list = prov_respData.results.US.buy;
@@ -183,8 +183,6 @@ function showMovies(movies, youtubeURL) {
                 main.appendChild(movieEl);
                 service_card = document.getElementById("service-card")
                 console.log(service_card)
-                if(typeof(services_logos) != "undefined")
-                {
                   for(i = 0; i < service_logos.length; i++)
                   {
                     img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
@@ -195,7 +193,6 @@ function showMovies(movies, youtubeURL) {
                     img_obj.classList.add("stream-icon");
                     service_card.appendChild(img_obj)
                   }
-                }
                   movieEl.innerHTML +=
                   `
 

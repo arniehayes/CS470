@@ -29,16 +29,16 @@ async function getTV(url) {
   const prov_resp = await fetch(PROVIDERURL);
   const prov_respData = await prov_resp.json();
 
+  // Initialize services array.
+  services = [];
+  // Initialize servie logo array.
+  service_logos = [];
   if(typeof(prov_respData.results.US) === "undefined")
   {
     service_string = "Unknown"
   }
   else
     {
-        // Initialize services array.
-        services = [];
-        // Initialize servie logo array.
-        service_logos = [];
         if(typeof(prov_respData.results.US.buy) != "undefined")
         {
           buy_list = prov_respData.results.US.buy;
@@ -79,7 +79,6 @@ async function getTV(url) {
       service_string = "Unknown"
     }
   }
-  console.log("Service string:", service_string)
   console.log("Service string:", service_string)
   showTV(respData);
 }
@@ -124,8 +123,7 @@ function showTV(movies) {
                 main.appendChild(movieEl);
                 service_card = document.getElementById("service-card")
                 console.log(service_card)
-                if(typeof(services_logos) != "undefined")
-                {
+                console.log("ser_log", service_logos)
                   for(i = 0; i < service_logos.length; i++)
                   {
                     img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
@@ -136,7 +134,6 @@ function showTV(movies) {
                     img_obj.classList.add("stream-icon");
                     service_card.appendChild(img_obj)
                   }
-                }
                   movieEl.innerHTML +=
                   `
           </div>
