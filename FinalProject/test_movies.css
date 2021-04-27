@@ -355,11 +355,10 @@ nav a:focus {
   display: none;
   position: absolute;
   background-color: black;
-  min-width: 160px;
   z-index: 1;
   cursor: pointer;
+  min-width: 100%;
 }
-
 
 /* Links inside the genre dropdown */
 .dropdown-content p {
@@ -368,21 +367,18 @@ nav a:focus {
   text-decoration: none;
   display: block;
   cursor: pointer;
-}
-
-.dropdown-content sslogo_tab {
-  color: #1EC71E;
-  display: block;
-  margin: 0;
   max-width: 100%;
   cursor: pointer;
 }
 
 .sslogo {
+    display: flex;
+    flex-direction: row;
     max-width: 171px;
     max-height: 80%;
+    margin: .5em;
     position: relative;
-    float: left;
+    float:left;
     cursor: pointer;
 }
 

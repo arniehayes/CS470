@@ -137,8 +137,28 @@ function StreamingFilter(ID){
         document.getElementById("SSDrop").innerHTML = "Netflix";
     else if(ID == 9)
         document.getElementById("SSDrop").innerHTML = "Amazon Prime";
-    else
+    else if(ID == 387)
         document.getElementById("SSDrop").innerHTML = "Peacock";
+    else if(ID == 337)
+        document.getElementById("SSDrop").innerHTML = "Disney Plus";
+    else if(ID == 257)
+        document.getElementById("SSDrop").innerHTML = "Fubo TV";
+    else if(ID == 105)
+        document.getElementById("SSDrop").innerHTML = "Fandango";
+    else if(ID == 3)
+        document.getElementById("SSDrop").innerHTML = "Google Play";
+    else if(ID == 2)
+        document.getElementById("SSDrop").innerHTML = "Apple TV";
+    else if(ID == 384)
+        document.getElementById("SSDrop").innerHTML = "HBO Max";
+    else if(ID == 248)
+        document.getElementById("SSDrop").innerHTML = "Boomerang";
+    else if(ID == 68)
+        document.getElementById("SSDrop").innerHTML = "Microsoft Store";
+    else if(ID == 279)
+        document.getElementById("SSDrop").innerHTML = "Redbox";
+    else if(ID == 358)
+        document.getElementById("SSDrop").innerHTML = "DirectTV";
     searchTV();
 }
 
