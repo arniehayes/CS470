@@ -187,14 +187,25 @@ function showMovies(movies, youtubeURL) {
   service_card = document.getElementById("service-card");
   console.log(service_card);
   console.log("ser_log", service_logos);
-  for (i = 0; i < service_logos.length; i++) {
-    img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
-    alternative = services[i];
+  if(service_logos.length == 0)
+  {
     img_obj = document.createElement("img");
-    img_obj.setAttribute("src", img_src);
-    img_obj.setAttribute("alt", alternative);
+    img_obj.setAttribute("src", "Images/no-entry.png");
+    img_obj.setAttribute("alt", "No streaming service available");
     img_obj.classList.add("stream-icon");
-    service_card.appendChild(img_obj);
+    service_card.appendChild(img_obj)
+  }
+  else
+  {
+    for (i = 0; i < service_logos.length; i++) {
+      img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
+      alternative = services[i];
+      img_obj = document.createElement("img");
+      img_obj.setAttribute("src", img_src);
+      img_obj.setAttribute("alt", alternative);
+      img_obj.classList.add("stream-icon");
+      service_card.appendChild(img_obj);
+    }
   }
   movieEl.innerHTML += `
           </div>
