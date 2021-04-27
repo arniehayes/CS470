@@ -171,39 +171,43 @@ function showMovies(movies, youtubeURL) {
       <div class = "genre-service">
           <div class = "genre-container">
               <h1 class = "sect-name">Genre</h1>
-              <div class="genre-card">             
+              <div class="border">
+                <div class="genre-card">             
                   <div class=""></div>
                   <p class = "card-text genre-service-text">${genre_string}</p>
                 </div>
-
-                <div class= "service-container">
-              <h1 class = "sect-name">Streaming Service</h1>
+              </div>
+          </div>
+          <div class= "service-container">
+            <h1 class = "sect-name">Streaming Service</h1>
+            <div class="border">
               <div id = "service-card" class="service-card">             
                   `;
-                main.appendChild(movieEl);
-                service_card = document.getElementById("service-card")
-                console.log(service_card)
-                  for(i = 0; i < service_logos.length; i++)
-                  {
-                    img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
-                    alternative = services[i];
-                    img_obj = document.createElement("img");
-                    img_obj.setAttribute("src", img_src);
-                    img_obj.setAttribute("alt", alternative);
-                    img_obj.classList.add("stream-icon");
-                    service_card.appendChild(img_obj)
-                  }
-                  movieEl.innerHTML +=
-                  `
-
-
+  main.appendChild(movieEl);
+  service_card = document.getElementById("service-card");
+  console.log(service_card);
+  console.log("ser_log", service_logos);
+  for (i = 0; i < service_logos.length; i++) {
+    img_src = "https://image.tmdb.org/t/p/original" + service_logos[i];
+    alternative = services[i];
+    img_obj = document.createElement("img");
+    img_obj.setAttribute("src", img_src);
+    img_obj.setAttribute("alt", alternative);
+    img_obj.classList.add("stream-icon");
+    service_card.appendChild(img_obj);
+  }
+  movieEl.innerHTML += `
+          </div>
+          </div>
+      </div>
       <div class = "description">
-              <h1 class = "sect-name">Description</h1>
-              <div class="card">
-                  <div class ="">            
-                  <p class = "card-text">${overview}</p>
-              </div>
-              </div>
+        <h1 class = "sect-name">Description</h1>
+        <div class="border">
+          <div class="card">        
+            <p class = "card-text">${overview}</p>
+          </div>
+        </div>
+      </div>
       </div>
       `;
 

@@ -10,7 +10,9 @@
   <body>
     <section class="header">
       <div class="title">
-        <h1>Streamline</h1>
+        <a class="home-page-icon"href="index.html">
+          <h1>Streamline</h1>
+        </a>
       </div>
       <nav>
         <ul>
@@ -36,5 +38,19 @@
       </nav>
   </section>
   <main id="main"></main>
+
+
+      <div class="spinner-wrapper">
+      <div class="spinner"></div>
+    </div>
+
+
+    <script>
+      let spinnerWrapper = document.querySelector('.spinner-wrapper');
+
+      window.addEventListener('load', function () {
+        spinnerWrapper.style.display = 'none';
+      });
+    </script>
   </body>
 </html>

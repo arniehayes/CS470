@@ -169,32 +169,34 @@ nav a:focus {
     flex-wrap: nowrap;
     background-color: transparent;
     text-align: center;
-    padding-top: 5em;
     font-family: 'Patrick Hand SC', cursive;
 }
 
 .genre-container {
     width: 50%;
+    padding: 50px;
 }
 
 .genre-card {
     background-color: transparent;
     width: 50%;
+    height: 7rem;
     text-align: center;
     margin: auto;
 }
 
 .service-container {
     width: 50%;
+    padding: 50px;
 }
 
 .service-card {
     background-color: transparent;
     width: 100%;
+    height: 9rem;
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: auto;
 }
 
 .description {
@@ -218,7 +220,10 @@ nav a:focus {
 
 .stream-icon {
     margin: .5em;
+    margin-top: 2em;
     border-radius: 30%;
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -273,3 +278,66 @@ h1 {
     text-decoration: none;
 }
 
+
+.border {
+    border: 5px solid #fff;
+    border-width: 3px 3px 5px 5px;
+    border-radius:4% 55% 6% 55%/ 55% 4% 52% 5%;
+    margin:15px;
+    padding:0 5px;
+    background:#ddd;
+    border:1px solid #222;
+    box-shadow:3px 3px 0 #222;
+}
+
+
+
+/* Loader Animation */
+.spinner-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.spinner::before,
+.spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #ff00cc 0%,#333399 100% );
+    animation: spin .5s infinite linear;
+}
+.spinner:after {
+    width: 90%;
+    height: 90%;
+    background-color: #151515;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+
+}

@@ -111,13 +111,16 @@ function showTV(movies) {
       <div class = "genre-service">
           <div class = "genre-container">
               <h1 class = "sect-name">Genre</h1>
-              <div class="genre-card">             
+              <div class="border">
+                <div class="genre-card">             
                   <div class=""></div>
                   <p class = "card-text genre-service-text">${genre_string}</p>
                 </div>
+              </div>
           </div>
           <div class= "service-container">
-              <h1 class = "sect-name">Streaming Service</h1>
+            <h1 class = "sect-name">Streaming Service</h1>
+            <div class="border">
               <div id = "service-card" class="service-card">             
                   `;
                 main.appendChild(movieEl);
@@ -137,14 +140,16 @@ function showTV(movies) {
                   movieEl.innerHTML +=
                   `
           </div>
+          </div>
       </div>
       <div class = "description">
-              <h1 class = "sect-name">Description</h1>
-              <div class="card">
-                  <div class ="">            
-                  <p class = "card-text">${overview}</p>
-              </div>
-              </div>
+        <h1 class = "sect-name">Description</h1>
+        <div class="border">
+          <div class="card">        
+            <p class = "card-text">${overview}</p>
+          </div>
+        </div>
+      </div>
       </div>
       `;
 
