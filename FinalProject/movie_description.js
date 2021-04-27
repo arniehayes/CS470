@@ -7,7 +7,7 @@ const APIURL =
 IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
   "https://api.themoviedb.org/3/search/movie?&api_key=94f2d3081ba573d2f171f0f8020eb38a&query=";
-youtube_key = "AIzaSyARkx4oX8mCmYJlyECthg1UMrOZKXJy5E8";
+youtube_key_array = ["AIzaSyBGFtH68BFY9L-iNkVF1IuzZdWYiIRqg_A","AIzaSyAYn-zgow3r768rIgaXMhiK7XzGETLUInw","AIzaSyARkx4oX8mCmYJlyECthg1UMrOZKXJy5E8","AIzaSyDe68Us2DPqMVN5o4EB0oFilwmyuYgL_gI","AIzaSyAFk7LnUM9ZEN66Ki86ZIAaal9nZBYosgg"]
 const PROVIDERURL =
   "https://api.themoviedb.org/3/movie/" +
   localStorage.getItem("storageName") +
@@ -19,6 +19,10 @@ const search = document.getElementById("search");
 console.log("Movie ID:",localStorage.getItem("storageName"))
 console.log("Movie Title:",localStorage.getItem("storageTitle"))
 
+
+// Choose a random YouTube API key to use.
+youtube_key = youtube_key_array[Math.floor(Math.random() * youtube_key_array.length)];
+console.log("Youtube key:", youtube_key);
 youtube_search = localStorage.getItem("storageTitle") + " Trailer";
 // initially get fav movies
 getMovies(APIURL);
