@@ -61,6 +61,7 @@ function showTV(TV) {
     // Checking if the rating is family: 10762 or child: 10751
     var rating = false;
     const { poster_path, name, id, genre_ids, overview, origin_country} = show;
+    inUS = false;
     if(origin_country.length > 0)
     {
       for(i = 0; i < origin_country.length; i++)
