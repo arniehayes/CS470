@@ -48,7 +48,7 @@ async function getTV(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log(respData);
+  //console.log(respData);
 
   showTV(respData.results);
 }

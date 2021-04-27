@@ -24,7 +24,7 @@ async function getTV(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log("Resp data:",respData);
+  //console.log("Resp data:",respData);
 
   const prov_resp = await fetch(PROVIDERURL);
   const prov_respData = await prov_resp.json();
@@ -42,7 +42,7 @@ async function getTV(url) {
         if(typeof(prov_respData.results.US.buy) != "undefined")
         {
           buy_list = prov_respData.results.US.buy;
-          console.log("buy list:", buy_list);
+          //console.log("buy list:", buy_list);
           // Get streaming services from buy list.
           if(buy_list.length > 0)
           {
@@ -52,8 +52,8 @@ async function getTV(url) {
               service_logos.push(buy_list[i].logo_path)
             }
           }
-          console.log("Services after buy_list:", services)
-          console.log("Service logos buy_list:", service_logos)
+          //console.log("Services after buy_list:", services)
+          //console.log("Service logos buy_list:", service_logos)
     }
 
     // Create the service provider string.
@@ -79,7 +79,7 @@ async function getTV(url) {
       service_string = "Unknown"
     }
   }
-  console.log("Service string:", service_string)
+  //console.log("Service string:", service_string)
   showTV(respData);
 }
 
@@ -89,7 +89,7 @@ function showTV(movies) {
 
   const { poster_path, overview, genres, US, backdrop_path } = movies;
   var genre_string = "";
-  console.log("Genres:",genres)
+  //console.log("Genres:",genres)
   for (i = 0; i < genres.length; i++) {
     if (i == genres.length - 1) {
       genre_string = genre_string + genres[i].name;
@@ -125,8 +125,8 @@ function showTV(movies) {
                   `;
                 main.appendChild(movieEl);
                 service_card = document.getElementById("service-card")
-                console.log(service_card)
-                console.log("ser_log", service_logos)
+                //console.log(service_card)
+                //console.log("ser_log", service_logos)
                 if(service_logos.length == 0)
                 {
                   img_obj = document.createElement("img");
