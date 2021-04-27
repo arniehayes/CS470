@@ -117,6 +117,7 @@ nav a:focus {
 
 .card-text {
     font-size: xx-large;
+    font-weight: bold;
 }
 
 .genre-service-text {
