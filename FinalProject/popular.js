@@ -60,7 +60,20 @@ function showTV(TV) {
   TV.forEach((show) => {
     // Checking if the rating is family: 10762 or child: 10751
     var rating = false;
-    const { poster_path, name, id, genre_ids } = show;
+    const { poster_path, name, id, genre_ids, overview, origin_country} = show;
+    if(origin_country.length > 0)
+    {
+      for(i = 0; i < origin_country.length; i++)
+      {
+        if(origin_country[i] === "US")
+        {
+          inUS = true;
+          break;
+        }
+      }
+    }
+    if(inUS == true)
+    {
     for (var i = 0; i < genre_ids.length - 1; i++) {
       if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
         rating = true;
@@ -68,7 +81,7 @@ function showTV(TV) {
     }
     if (rating) {
       // Making sure the file is not corrupted
-      if (poster_path != null && name != null) {
+      if (poster_path != null && name != null && overview != "") {
         const tvEL = document.createElement("div");
         tvEL.classList.add("movie");
 
@@ -87,6 +100,7 @@ function showTV(TV) {
         main.appendChild(tvEL);
       }
     }
+  }
   });
 }
 
@@ -107,8 +121,8 @@ function showMovies(movies) {
     }
     if (rating) {
       // Making sure the file is not corrupted
-      const { poster_path, title, overview, id, release_date } = movie;
-      if (poster_path != null && title != null) {
+      const { poster_path, title, overview, id, release_date, original_language } = movie;
+      if (poster_path != null && title != null && overview != "" && original_language === "en") {
         const movieEl = document.createElement("div");
         movieEl.classList.add("movie");
 

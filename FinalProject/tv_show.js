@@ -56,31 +56,48 @@ function showTV(TV) {
   TV.forEach((show) => {
     // Checking if the rating is family: 10762 or child: 10751
     var rating = false;
-    const { poster_path, name, id, genre_ids } = show;
-    for (var i = 0; i < genre_ids.length - 1; i++) {
-      if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
-        rating = true;
+    const { poster_path, name, id, genre_ids, overview, original_language, origin_country} = show;  
+    inUS = false;
+    // Check to see if the origin country is in the US.
+    if(origin_country.length > 0)
+    {
+      for(i = 0; i < origin_country.length; i++)
+      {
+        if(origin_country[i] === "US")
+        {
+          inUS = true;
+          break;
+        }
       }
     }
-    if (rating) {
-      // Making sure the file is not corrupted
-      if (poster_path != null && name != null) {
-        const tvEL = document.createElement("div");
-        tvEL.classList.add("movie");
+    if(inUS == true)
+    {
+      for (var i = 0; i < genre_ids.length - 1; i++) {
+        if (genre_ids[i] == 10762 || genre_ids[i] == 10751) {
+          rating = true;
+        }
+      }
+      // Check to see if the original language is English/US
+      if (rating) {
+        // Making sure the file is not corrupted and an overview exists
+        if (poster_path != null && name != null && overview != "") {
+          const tvEL = document.createElement("div");
+          tvEL.classList.add("movie");
 
-        tvEL.innerHTML = `
-                <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
-                    <img
-                        src="${IMGPATH + poster_path}"
-                        alt="${name}"
-                    />
-                </a>
-                <div class="movie-info">
-                    <h3>${name}</h3>
-                </div>
-                `;
+          tvEL.innerHTML = `
+                  <a href="tv_description.html" id="${id}" onclick="getID(this.id)">
+                      <img
+                          src="${IMGPATH + poster_path}"
+                          alt="${name}"
+                      />
+                  </a>
+                  <div class="movie-info">
+                      <h3>${name}</h3>
+                  </div>
+                  `;
 
-        main.appendChild(tvEL);
+          main.appendChild(tvEL);
+        }
       }
     }
   });
