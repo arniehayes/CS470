@@ -56,6 +56,23 @@ async function getTV(url) {
           console.log("Service logos buy_list:", service_logos)
     }
 
+    if(typeof(prov_respData.results.US.flatrate) != "undefined")
+    {
+      flatrate_list = prov_respData.results.US.flatrate;
+      console.log("flatrate list:", flatrate_list);
+      if(flatrate_list.length > 0)
+      {
+        // Get streaming services from flat_list.
+        for(i = 0; i < flatrate_list.length; i++)
+        {
+          services.push(flatrate_list[i].provider_name)
+          service_logos.push(flatrate_list[i].logo_path)
+        }
+      }
+      console.log("Services after flatrate_list:", services)
+      console.log("Service logos flatrate_list:", service_logos)
+    }
+
     // Create the service provider string.
     service_string = ""
     if(services.length > 0)
