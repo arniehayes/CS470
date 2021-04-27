@@ -5,7 +5,10 @@ TVAPI1 =
   "https://api.themoviedb.org/3/discover/tv?api_key=94f2d3081ba573d2f171f0f8020eb38a&language=en-US&sort_by=popularity.desc&page=";
 
 TVAPI2 =
-  "&timezone=America%2FNew_York&with_genres=10762&include_null_first_air_dates=false";
+  "&timezone=America%2FNew_York&with_genres=10762";
+
+TVAPI3 =
+"&include_null_first_air_dates=false";
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
@@ -21,13 +24,34 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
+serviceid = 0;
+genreid=0;
+
+async function buildList(){
+    servicetag = "";
+    moviegenretag = "";
+    tvgenretag = "";
+    if(serviceid)
+        servicetag = "&with_watch_providers=" + serviceid + "&watch_region=US";
+    if(genreid){
+        moviegenretag = "&with_genres=" + genreid;
+        if((genreid == 28) || (genreid == 12))
+            tvgenretag = ",10759";
+        else if((genreid == 14) || (genreid == 878))
+            tvgenretag = ",10765";
+        else
+            tvgenretag = "," + genreid;
+    }
+    for (i = 1; i < 50; i++) {
+        getMovies(APIURL + i + moviegenretag + servicetag);
+    }
+    for (i = 1; i < 50; i++) {
+        getTV(TVAPI1 + i + TVAPI2 + tvgenretag + TVAPI3 + servicetag);
+    }
+}
+
 // initially get fav movies
-for (i = 1; i < 50; i++) {
-  getMovies(APIURL + i);
-}
-for (i = 1; i < 50; i++) {
-  getTV(TVAPI1 + i + TVAPI2);
-}
+buildList();
 
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -153,6 +177,72 @@ function getID(clickedID, clickedTitle, clickedRelease) {
   localStorage.setItem("releaseYear", release);
 }
 
+function genreClick() {
+  document.getElementById("genreDropdown").classList.toggle("show");
+}
+
+function StreamingFilter(ID){
+    main.innerHTML = "";
+    serviceid = ID;
+    if(!ID){
+        document.getElementById("SSDrop").innerHTML = "Streaming Service";
+    }
+    else if(ID == 15)
+        document.getElementById("SSDrop").innerHTML = "Hulu";
+    else if(ID == 8)
+        document.getElementById("SSDrop").innerHTML = "Netflix";
+    else if(ID == 9)
+        document.getElementById("SSDrop").innerHTML = "Amazon Prime";
+    else if(ID == 387)
+        document.getElementById("SSDrop").innerHTML = "Peacock";
+    else if(ID == 337)
+        document.getElementById("SSDrop").innerHTML = "Disney Plus";
+    else if(ID == 257)
+        document.getElementById("SSDrop").innerHTML = "Fubo TV";
+    else if(ID == 105)
+        document.getElementById("SSDrop").innerHTML = "Fandango";
+    else if(ID == 3)
+        document.getElementById("SSDrop").innerHTML = "Google Play";
+    else if(ID == 2)
+        document.getElementById("SSDrop").innerHTML = "Apple TV";
+    else if(ID == 384)
+        document.getElementById("SSDrop").innerHTML = "HBO Max";
+    else if(ID == 248)
+        document.getElementById("SSDrop").innerHTML = "Boomerang";
+    else if(ID == 68)
+        document.getElementById("SSDrop").innerHTML = "Microsoft Store";
+    else if(ID == 279)
+        document.getElementById("SSDrop").innerHTML = "Redbox";
+    else if(ID == 358)
+        document.getElementById("SSDrop").innerHTML = "DirectTV";
+    buildList();
+}
+
+function GenreFilter(ID){
+    main.innerHTML = "";
+    genreid = ID;
+    if(!ID){
+        document.getElementById("GDrop").innerHTML = "Genre";
+    }
+    else if(ID == 28)
+        document.getElementById("GDrop").innerHTML = "Action";
+    else if(ID == 12)
+        document.getElementById("GDrop").innerHTML = "Adventure";
+    else if(ID == 16)
+        document.getElementById("GDrop").innerHTML = "Animation";
+    else if(ID == 35)
+        document.getElementById("GDrop").innerHTML = "Comedy";
+    else if(ID == 14)
+        document.getElementById("GDrop").innerHTML = "Fantasy";
+    else
+        document.getElementById("GDrop").innerHTML = "SciFi";
+    buildList();
+}
+
+function servicesClick() {
+  document.getElementById("servicesDropdown").classList.toggle("show");
+}
+
 // Search
 // NEED TO
 form.addEventListener("submit", (e) => {
@@ -161,3 +251,17 @@ form.addEventListener("submit", (e) => {
   localStorage.setItem("lookup", searchTerm)
   window.location.href = "results.html"
 });
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".dropbtn")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};

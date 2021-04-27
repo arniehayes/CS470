@@ -293,7 +293,7 @@ nav a:focus {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: #4f4e4c;
   z-index: 1;
   cursor: pointer;
   width: 160px;
@@ -319,6 +319,8 @@ nav a:focus {
     position: relative;
     float:left;
     cursor: pointer;
+    margin-top: 2em;
+    border-radius: 30%;
 }
 
 .Glogo {
