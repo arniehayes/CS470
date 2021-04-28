@@ -109,7 +109,7 @@ main {
 }
 
 .movie-info h3 {
-    margin: 0;
+    margin: .2em;
     font-family: 'Patrick Hand SC', cursive;
     font-size: 20px;
 }
