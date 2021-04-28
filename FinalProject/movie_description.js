@@ -33,7 +33,8 @@ async function getMovies(url) {
   youtube_search = youtube_search.replaceAll(" ", "+");
   console.log("Search:", youtube_search)
   APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoSyndicated=any&q=" + youtube_search + "&key=" + youtube_key;
-
+  youtube_url = "https://www.youtube.com/embed/"; 
+  try{
   const y_resp = await fetch(APIsearch);
   const y_respData = await y_resp.json();
   console.log("YouTube API return:",y_respData);
@@ -62,7 +63,10 @@ async function getMovies(url) {
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + chosen_vid_id;
   console.log("Youtube Video URL:", youtube_url)
-
+  } catch(e)
+  {
+    console.log(e)
+  }
   const prov_resp = await fetch(PROVIDERURL);
   const prov_respData = await prov_resp.json();
 
@@ -141,6 +145,7 @@ async function getMovies(url) {
   const respData = await resp.json();
 
   console.log("IMDB Object:", respData);
+  console.log("YouTube URL:", youtube_url);
   showMovies(respData, youtube_url);
 }
 
