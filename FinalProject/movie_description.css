@@ -203,8 +203,8 @@ nav a:focus {
 .service-card {
     background-color: transparent;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    height: 100%;
+    display: block;
     justify-content: center;
     align-content: center;
     text-align: center;
@@ -237,11 +237,6 @@ nav a:focus {
     height: 80px;
 }
 
-.stream-icon:hover {
-    width: 82px;
-    height: 82px;
-}
-
 * {
     animation: ease-in;
 }
@@ -255,9 +250,6 @@ nav a:focus {
     background:#ddd;
     border:1px solid #222;
     box-shadow:3px 3px 0 #222;
-    height: 50%;
-    display: flex;
-    align-content: center;
 }
 
 /* LOGO */
