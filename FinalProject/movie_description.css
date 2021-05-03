@@ -190,14 +190,17 @@ nav a:focus {
 }
 
 .service-container {
-    width: 50%;
+    width: 55%;
     padding: 50px;
 }
 
 .service-card {
     background-color: transparent;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     text-align: center;
 }
 
@@ -228,15 +231,27 @@ nav a:focus {
     height: 80px;
 }
 
+.stream-icon:hover {
+    width: 82px;
+    height: 82px;
+}
+
+* {
+    animation: ease-in;
+}
+
 .border {
     border: 5px solid #fff;
     border-width: 3px 3px 5px 5px;
     border-radius:4% 55% 6% 55%/ 55% 4% 52% 5%;
-    margin:15px;
-    padding: 5px 15px;
+    margin: 15px;
+    padding: 20px 15px;
     background:#ddd;
     border:1px solid #222;
     box-shadow:3px 3px 0 #222;
+    height: 50%;
+    display: flex;
+    align-content: center;
 }
 
 /* LOGO */

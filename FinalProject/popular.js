@@ -42,10 +42,10 @@ async function buildList(){
         else
             tvgenretag = "," + genreid;
     }
-    for (i = 1; i < 50; i++) {
+    for (i = 1; i < 30; i++) {
         getMovies(APIURL + i + moviegenretag + servicetag);
     }
-    for (i = 1; i < 50; i++) {
+    for (i = 1; i < 30; i++) {
         getTV(TVAPI1 + i + TVAPI2 + tvgenretag + TVAPI3 + servicetag);
     }
 }

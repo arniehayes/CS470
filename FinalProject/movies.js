@@ -31,7 +31,7 @@ function searchMovie(){
         servicetag = "&with_watch_providers=" + serviceid + "&watch_region=US";
     if(genreid)
         genretag = "&with_genres=" + genreid;
-    for (i = 1; i < 50; i++) {
+    for (i = 1; i < 30; i++) {
         getMovies(APIURL + i + genretag + servicetag);
     }
 }
