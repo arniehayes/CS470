@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 * {
   transition: all 0.3s ease-out;
 }
@@ -18,7 +19,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-image: url(Images/cbg.jpeg);
+  background-image: url(Images/1.png);
+  background-size: cover;
   width: 100%;
   text-align: center;
 }
@@ -92,8 +94,6 @@ section {
   display: flex;
   margin: 1em;
   justify-content: center;
-  height: 100vh;
-  font-family: 'Baloo Paaji 2', cursive;
 }
 
 .card-holder {
@@ -102,9 +102,11 @@ section {
   transform: translateX(-50%);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
 .card {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 40000% 40000%;
+  background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 28rem;
   width: 17em;
@@ -129,25 +131,32 @@ section {
     }
 }
 
-.card:hover {
+.card:hover{
   width: 18em;
   height: 29em;
    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
 }
 
+.card:hover .card__name {
+  color: #fff;
+}
+
 .card__name {
   margin-top: 3rem;
-  font-size: 1.5em;
+  font-size: 2em;
   color: #000;
+  font-family: 'Berkshire Swash', cursive;
 }
+
+
 
 .card__image {
   height: 160px;
   width: 160px;
   border-radius: 50%;
   border: 5px solid #272133;
+  box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;
   margin-top: 20px;
-    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.7);
 }
 
 .card__image:hover {
@@ -160,7 +169,7 @@ section {
   padding: 0;
   list-style: none;
   margin: 1em;
-  margin-top: 3em;
+  margin-top: 1.5em;
   display: flex;
   justify-content: center;
   width: 100%;
