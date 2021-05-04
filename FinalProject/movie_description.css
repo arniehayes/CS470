@@ -249,7 +249,7 @@ nav a:focus {
     padding: 20px 15px;
     background:#ddd;
     border:1px solid #222;
-    box-shadow:3px 3px 0 #222;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 /* LOGO */

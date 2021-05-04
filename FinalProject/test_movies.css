@@ -78,11 +78,10 @@ main {
 }
 
 .movie {
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #000000, #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	background-size: cover;
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
     border-radius: 10px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -125,7 +124,6 @@ main {
 
 .movie:hover {
     border: 2px solid white;
-    max-width: 320px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
@@ -201,50 +199,6 @@ nav a:focus {
     justify-content: left;
     margin-left: 9em;
 }
-
-
-/* Card View 
-=================================*/
-
-.card-section {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    justify-content: center;
-}
-
-
-.card {
-    transition: 0.3s;
-    width: 20%;
-    background: none;
-    margin: 3rem;
-    transition: width .5s, height .5s;
-    border-radius: 12px;
-}
-
-.card img {
-    border-radius: 12px;
-}
-
-    .card img:hover {
-        cursor: pointer;
-    }
-
-.card:hover {
-    box-shadow: 10px 10px 20px rgba(138,43,226, 1);
-    width: 21%;
-    height: 21%;
-}
-
-
-.container-card {
-    padding: 2px 16px 10px;
-    background-color: #fff;
-    color: #232323;
-    border-radius: 12px;
-}
-
 
 
 /* The Close Button */

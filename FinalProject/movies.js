@@ -43,7 +43,7 @@ async function getMovies(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log(respData);
+  //console.log(respData);
 
   showMovies(respData.results);
 }
@@ -52,7 +52,7 @@ async function getSearchMovies(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log(respData);
+  //console.log(respData);
 
   showSearchMovies(respData.results);
 }

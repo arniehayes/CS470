@@ -46,12 +46,12 @@ stream_links.set("Hoopla", "https://www.hoopladigital.com/");
 stream_links.set("AMC on Demand", "https://www.amcplus.com/get-started?utm_medium=sem&utm_source=google&utm_campaign=amc-plus&gclid=CjwKCAjwm7mEBhBsEiwA_of-TO4J0wqihem7IKoo_8bXav3fOgtbnpeEC52e0J8Pid1-x5BeF1_PSBoCTuQQAvD_BwE");
 stream_links.set("YouTube", "https://www.youtube.com/");
 
-console.log("Movie ID:",localStorage.getItem("storageName"))
-console.log("Movie Title:",localStorage.getItem("storageTitle"))
+//console.log("Movie ID:",localStorage.getItem("storageName"))
+//console.log("Movie Title:",localStorage.getItem("storageTitle"))
 
 // Choose a random YouTube API key to use.
 youtube_key = youtube_key_array[Math.floor(Math.random() * youtube_key_array.length)];
-console.log("Youtube key:", youtube_key);
+//console.log("Youtube key:", youtube_key);
 youtube_search = localStorage.getItem("storageTitle") + " Trailer";
 // initially get fav movies
 getMovies(APIURL);
@@ -60,25 +60,25 @@ async function getMovies(url) {
   // Construct YouTube API search for the movie trailer
   youtube_search = localStorage.getItem("storageTitle") + ' ' + localStorage.getItem("releaseYear") + " Trailer";
   youtube_search = youtube_search.replaceAll(" ", "+");
-  console.log("Search:", youtube_search)
+  //console.log("Search:", youtube_search)
   APIsearch =  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoSyndicated=any&q=" + youtube_search + "&key=" + youtube_key;
   youtube_url = "https://www.youtube.com/embed/"; 
   try{
   const y_resp = await fetch(APIsearch);
   const y_respData = await y_resp.json();
-  console.log("YouTube API return:",y_respData);
+  //console.log("YouTube API return:",y_respData);
   chosen_vid_id = "";
   // Check through each result of the youtube search in order to get the trailer
   youtube_results = y_respData.items;
-  console.log("Youtube Video results:", youtube_results)
+  //console.log("Youtube Video results:", youtube_results)
   for(i = 0; i < youtube_results.length; i++)
   {
     // Check if the video has the word "trailer" in it
     lowercaseTitle = youtube_results[i].snippet.title.toLowerCase();
-    console.log("Title searched:", lowercaseTitle)
+    //console.log("Title searched:", lowercaseTitle)
     if(lowercaseTitle.includes("trailer") == true)
     {
-      console.log("Chosen title:", youtube_results[i].snippet.title)
+      //console.log("Chosen title:", youtube_results[i].snippet.title)
       chosen_vid_id = youtube_results[i].id.videoId;
       break;
     }
@@ -91,15 +91,15 @@ async function getMovies(url) {
 
   // Construct Youtube video URL
   youtube_url = "https://www.youtube.com/embed/" + chosen_vid_id;
-  console.log("Youtube Video URL:", youtube_url)
+  //console.log("Youtube Video URL:", youtube_url)
   } catch(e)
   {
-    console.log(e)
+    //console.log(e)
   }
   const prov_resp = await fetch(PROVIDERURL);
   const prov_respData = await prov_resp.json();
 
-  console.log("provider Resp data:", prov_respData)
+  //console.log("provider Resp data:", prov_respData)
   
   // Initialize services array.
   services = [];
@@ -116,7 +116,7 @@ async function getMovies(url) {
     if(typeof(prov_respData.results.US.buy) != "undefined")
     {
       buy_list = prov_respData.results.US.buy;
-      console.log("buy list:", buy_list);
+      //console.log("buy list:", buy_list);
       // Get streaming services from buy list.
       if(buy_list.length > 0)
       {
@@ -126,14 +126,14 @@ async function getMovies(url) {
           service_logos.push(buy_list[i].logo_path)
         }
       }
-      console.log("Services after buy_list:", services)
-      console.log("Service logos buy_list:", service_logos)
+      //console.log("Services after buy_list:", services)
+      //console.log("Service logos buy_list:", service_logos)
     }
 
     if(typeof(prov_respData.results.US.flatrate) != "undefined")
     {
       flatrate_list = prov_respData.results.US.flatrate;
-      console.log("flatrate list:", flatrate_list);
+     // console.log("flatrate list:", flatrate_list);
       if(flatrate_list.length > 0)
       {
         // Get streaming services from flat_list.
@@ -143,8 +143,8 @@ async function getMovies(url) {
           service_logos.push(flatrate_list[i].logo_path)
         }
       }
-      console.log("Services after flatrate_list:", services)
-      console.log("Service logos flatrate_list:", service_logos)
+     // console.log("Services after flatrate_list:", services)
+     // console.log("Service logos flatrate_list:", service_logos)
     }
 
     if(services.length > 0)
@@ -157,15 +157,15 @@ async function getMovies(url) {
         {
           service_links.push(stream_links.get(services[i]));
         }
-        console.log("Service links:", service_links);
+       // console.log("Service links:", service_links);
       }
     }
   }
   const resp = await fetch(url);
   const respData = await resp.json();
 
-  console.log("IMDB Object:", respData);
-  console.log("YouTube URL:", youtube_url);
+  //console.log("IMDB Object:", respData);
+ // console.log("YouTube URL:", youtube_url);
   showMovies(respData, youtube_url);
 }
 
@@ -214,8 +214,8 @@ function showMovies(movies, youtubeURL) {
                   `;
                   main.appendChild(movieEl);
                   service_card = document.getElementById("service-card")
-                  console.log(service_card)
-                  console.log("ser_log", service_logos)
+                  //console.log(service_card)
+                  //console.log("ser_log", service_logos)
                   if(service_logos.length == 0)
                   {
                     img_obj = document.createElement("img");
